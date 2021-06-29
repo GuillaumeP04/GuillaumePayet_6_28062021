@@ -6,6 +6,8 @@
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         <link rel="stylesheet" href="../css/main.css" />
         <link rel="stylesheet" href="../css/contact.css">
+        <link href="../css/fontawesome.css" rel="stylesheet">
+
     </head>
     <body>
         <header>
@@ -25,14 +27,120 @@
                     </div> 
                 </div>
                 <div>
-                    <a class="contact--form__lien" href="">Contactez-moi</a>
+                    <button class="contact--form__lien">Contactez-moi</button>
                 </div>
                 <div>
                     <img class="photographe--profil" src="../images/photoID/EllieRoseWilkens.jpg" alt="">
                 </div>
             </div>
             <div>
-
+                <form  action="">
+                    <label for="trie">Trier par</label>
+                    <select class="form--trie" name="trie" id="trie">
+                        <option value="popularité">Popularité</option>
+                        <option value="date">Date</option>
+                        <option value="titre">Titre</option>
+                    </select>
+                </form>
+            </div>
+            <div class="div--wrapper">
+                <div class="image--wrapper">
+                    <a href=""><video src="../images/ellierose/Sport_Tricks_in_the_air.mp4" class="videos" controls></video></a>
+                    <div class="description--wrapper">
+                        <p class="description">Tricks in the Air</p>
+                        <a href=""><i class="fas fa-heart like"></i></a>
+                    </div>
+                </div>
+                <div class="image--wrapper">
+                    <a href=""><img class="photos" src="../images/ellierose/Sport_Next_Hold.jpg" alt="Climber"></a>
+                    <div class="description--wrapper">
+                        <p class="description">Climber</p>
+                        <a href=""><i class="fas fa-heart like"></i></a>
+                    </div>
+                </div>
+                <div class="image--wrapper">
+                    <a href=""><img class="photos" src="../images/ellierose/sport_water_tunnel.jpg" alt="Surfer"></a>
+                    <div class="description--wrapper">
+                        <p class="description">Surfer</p>
+                        <a href=""><i class="fas fa-heart like"></i></a>
+                    </div>
+                </div>
+                <div class="image--wrapper">
+                    <a href=""><img class="photos" src="../images/ellierose/Sport_Sky_Cross.jpg" alt="Skier"></a>
+                    <div class="description--wrapper">
+                        <p class="description">Skier</p>
+                        <a href=""><i class="fas fa-heart like"></i></a>
+                    </div>
+                </div>
+                <div class="image--wrapper">
+                    <a href=""><img class="photos" src="../images/ellierose/Sport_Race_End.jpg" alt="Race End"></a>
+                    <div class="description--wrapper">
+                        <p class="description">Race End</p>
+                        <a href=""><i class="fas fa-heart like"></i></a>
+                    </div>
+                </div>
+                <div class="image--wrapper">
+                    <a href=""><img class="photos" src="../images/ellierose/Sport_Jump.jpg" alt="Jump!"></a>
+                    <div class="description--wrapper">
+                        <p class="description">Jump!</p>
+                        <a href=""><i class="fas fa-heart like"></i></a>
+                    </div>
+                </div>
+                <div class="image--wrapper">
+                    <a href=""><img class="photos" src="../images/ellierose/Architecture_White_Light.jpg" alt="White Light"></a>
+                    <div class="description--wrapper">
+                        <p class="description">White Light</p>
+                        <a href=""><i class="fas fa-heart like"></i></a>
+                    </div>
+                </div>
+                <div class="image--wrapper">
+                    <a href=""><img class="photos" src="../images/ellierose/Architecture_Water_on_Modern.jpg" alt="Water on Modern Building"></a>
+                    <div class="description--wrapper">
+                        <p class="description">Water on Modern Building</p>
+                        <a href=""><i class="fas fa-heart like"></i></a>
+                    </div>
+                </div>
+                <div class="image--wrapper">
+                    <a href=""><img class="photos" src="../images/ellierose/Architecture_Horseshoe.jpg" alt="Horseshoe"></a>
+                    <div class="description--wrapper">
+                        <p class="description">Horseshoe</p>
+                        <a href=""><i class="fas fa-heart like"></i></a>
+                    </div>
+                </div>
+                <div class="image--wrapper">
+                    <a href=""><img class="photos" src="../images/ellierose/Architecture_Cross_Bar.jpg" alt="Cross Bar"></a>
+                    <div class="description--wrapper">
+                        <p class="description">Cross Bar</p>
+                        <a href=""><i class="fas fa-heart like"></i></a>
+                    </div>
+                </div>
+                <div class="image--wrapper">
+                    <a href=""><img class="photos" src="../images/ellierose/Architecture_Connected_Curves.jpg" alt="Connected Curves"></a>
+                    <div class="description--wrapper">
+                        <p class="description">Connected Curves</p>
+                        <a href=""><i class="fas fa-heart like"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="like--wrapper">
+                <i class="fas fa-heart"></i> 
+                <p>250€/jour</p>
+            </div>
+            <div class="contact--form">
+                <form class="form"> 
+                    <a href=""><i class="fas fa-times fermer"></i></a>
+                    <p>Contactez-moi</p>
+                    <p>Ellie-Rose Wilkens</p>
+                    <label for="prenom">Prénom</label>
+                    <input id="prenom" type="text">
+                    <label for="nom">Nom</label>
+                    <input id="nom" type="text">
+                    <label for="email">Email</label>
+                    <input id="email" type="text">
+                    <label for="message">Votre message</label>
+                    <input id="message" type="text">
+                    <button id="envoyer">Envoyer</button>
+                </form>
             </div>
         </main>
     </body>
