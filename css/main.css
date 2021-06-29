@@ -1,0 +1,122 @@
+body {
+    font-family: DM Sans;
+    padding: 25px;
+    margin: 0px;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.logo {
+    height: 50px;
+    width: 200px;
+    margin-right: 30px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.nav--active {
+    background-color: #DB8876;
+    border: #DB8876 1px solid;
+    border-radius: 10px;
+    padding: 4px;
+    font-size: 20px;
+    font-weight: 500;
+    margin: 15px;
+    display: none;
+}
+
+.nav--wrapper {
+    display: flex;
+    flex-direction: row;
+}
+
+.nav--bar {
+    border: 0.5px solid #C4C4C4;
+    box-sizing: border-box;
+    border-radius: 25px;
+    padding: 4px;
+    color: #901C1C;
+    position: relative;
+    margin-right: 5px;
+}
+
+.nav--wrapper:last-child {
+    margin-right: 400px;
+}
+
+.main--wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.title--wrapper h1{
+    color: #911C1C;
+    font-size: 46px;
+    font-weight: 400;
+    position: absolute;
+    right: 25px;
+    top: 0px;
+}
+
+.photographe--wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 50px 0px;
+    height: 450px;
+    width: 400px;
+}
+
+.photographe--profil {
+    border: 0px solid black;
+    border-radius: 100%;
+    width: 200px;
+    height: 200px;
+    box-shadow:  lightgrey 0px 0px 10px 2px;
+    object-fit: cover;
+}
+
+.photographe--ville {
+    font-size: 20px;
+    margin: 5px;
+    color: #901C1C;
+}
+
+.photographe--nom {
+    font-size: 45px;
+    margin: 20px 0px;
+    color: #D3573C;
+    font-weight: lighter;
+    text-decoration: none;
+}
+
+.photographe--selection {
+    border: 0.5px solid #C4C4C4;
+    box-sizing: border-box;
+    border-radius: 25px;
+    padding: 4px;
+    color: #901C1C;
+}
+
+.selection--wrapper {
+    margin-top: 10px;
+}
+
+.photographe--texte {
+    margin: 5px 0px;
+    font-weight: 500;
+}
+
+.photographe--prix {
+    color: #757575;
+    margin: 5px;
+}

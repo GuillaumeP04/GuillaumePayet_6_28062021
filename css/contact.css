@@ -1,0 +1,15 @@
+.contact--wrapper {
+    background-color: #FAFAFA;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 25px;
+}
+
+.contact--form__lien {
+    color: white;
+    background-color: #901C1C;
+    border: #901C1C solid 1px;
+    border-radius: 5px;
+    padding: 10px;
+}
