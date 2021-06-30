@@ -2,6 +2,7 @@ body {
     font-family: DM Sans;
     padding: 25px;
     margin: 0px;
+    position: relative;
 }
 
 header {
@@ -9,6 +10,7 @@ header {
     flex-direction: row;
     align-items: center;
     margin-bottom: 50px;
+    margin-top: 25px;
 }
 
 .logo {
@@ -29,6 +31,9 @@ a {
     font-size: 20px;
     font-weight: 500;
     margin: 15px;
+    position: fixed;
+    right: 45%;
+    top: 0px;
     display: none;
 }
 
@@ -45,6 +50,11 @@ a {
     color: #901C1C;
     position: relative;
     margin-right: 5px;
+}
+
+.nav--bar:hover, .nav--bar:focus {
+    background-color: #901C1C;
+    color: white;
 }
 
 .nav--wrapper:last-child {
@@ -64,7 +74,8 @@ a {
     font-weight: 400;
     position: absolute;
     right: 25px;
-    top: 0px;
+    top: 45px;
+    margin: 0px;
 }
 
 .photographe--wrapper {
@@ -105,6 +116,11 @@ a {
     border-radius: 25px;
     padding: 4px;
     color: #901C1C;
+}
+
+.photographe--selection:hover, .photographe--selection:focus {
+    background-color: #901C1C;
+    color: white;
 }
 
 .selection--wrapper {

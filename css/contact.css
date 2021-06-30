@@ -17,6 +17,11 @@ body {
     padding: 10px;
 }
 
+.contact--form__lien:hover, .contact--form__lien:focus {
+    background-color: #DB8876;
+    color: black;
+}
+
 .form--trie {
     background-color: #901C1C;
     color: white;
@@ -31,17 +36,19 @@ select option {
     color: white;
 }
 
-.contact--form {
+.background {
     height: fit-content;
     background-color: #DB8876;
     padding: 25px;
     width: 600px;
     border-radius: 5px;
-    position: relative;
+    position: fixed;
+    top: 25px;
+    right: 25%;
     display: none;
 }
 
-.form {
+.contact--form {
     display: flex;
     flex-direction: column;
     width: 600px;
@@ -54,18 +61,19 @@ select option {
     position: absolute;
     right: 25px;
     top: 25px;
+    cursor: pointer;
 }
 
-.form p {
+.contact--form p {
     font-size: 45px;
     margin: 0px 0px 15px 0px;
 }
 
-.form label {
+.contact--form label {
     font-size: 25px;
 }
 
-.form input {
+.contact--form input {
     height: 50px;
     border-radius: 5px;
     border: 1px solid white;
@@ -75,7 +83,7 @@ select option {
     height: 150px;
 }
 
-.form button {
+.button {
     font-size: 15px;
     border-radius: 5px;
     background-color: #901C1C;
@@ -96,6 +104,7 @@ select option {
 .image--wrapper {
     margin-top: 25px;
     max-width: 350px;
+    margin-right: 15px;
 }
 
 .photos {

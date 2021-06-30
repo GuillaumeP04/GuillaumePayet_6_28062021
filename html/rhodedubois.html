@@ -29,7 +29,7 @@
                     </div> 
                 </div>
                 <div>
-                    <button class="contact--form__lien">Contactez-moi</button>
+                    <button id="ouvrir--form" class="contact--form__lien">Contactez-moi</button>
                 </div>
                 <div>
                     <img class="photographe--profil" src="../images/photoID/RhodeDubois.jpg" alt="">
@@ -114,22 +114,52 @@
                 <i class="fas fa-heart"></i> 
                 <p>375€/jour</p>
             </div>
-            <div class="contact--form">
-                <form class="form"> 
-                    <a href=""><i class="fas fa-times fermer"></i></a>
-                    <p>Contactez-moi</p>
-                    <p>Rhode Dubois</p>
-                    <label for="prenom">Prénom</label>
-                    <input id="prenom" type="text">
-                    <label for="nom">Nom</label>
-                    <input id="nom" type="text">
-                    <label for="email">Email</label>
-                    <input id="email" type="text">
-                    <label for="message">Votre message</label>
-                    <input id="message" type="text">
-                    <button id="envoyer">Envoyer</button>
-                </form>
+            <div class="background">
+                <div>
+                    <i id="fermer--form" class="fas fa-times fermer"></i>
+                    <form 
+                    class="contact--form"
+                    name="form" 
+                    id="form"
+                    method="GET"
+                    onsubmit="submitForm"
+                    >  
+                        <p>Contactez-moi</p>
+                        <p>Rhode Dubois</p>
+                        <label for="prenom">Prénom</label>
+                        <input 
+                        id="prenom" 
+                        type="text" 
+                        name="prenom"
+                        >
+                        <label for="nom">Nom</label>
+                        <input 
+                        id="nom" 
+                        type="text" 
+                        name="nom"
+                        >
+                        <label for="email">Email</label>
+                        <input 
+                        id="email" 
+                        type="email" 
+                        name="email"
+                        >
+                        <label for="message">Votre message</label>
+                        <input 
+                        id="message" 
+                        type="text" 
+                        name="message"
+                        >
+                        <input 
+                        type="submit"
+                        id="btn--envoyer"
+                        value="Envoyer"
+                        class="button"
+                        >
+                    </form>
+                </div>
             </div>
         </main>
+        <script src="../javascript/modal.js"></script>
     </body>
 </html>
