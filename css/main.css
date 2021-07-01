@@ -50,9 +50,19 @@ a {
     color: #901C1C;
     position: relative;
     margin-right: 5px;
+    cursor: pointer;
 }
 
 .nav--bar:hover, .nav--bar:focus {
+    background-color: #901C1C;
+    color: white;
+}
+
+.off {
+    display: none;
+}
+
+.on {
     background-color: #901C1C;
     color: white;
 }
@@ -61,7 +71,7 @@ a {
     margin-right: 400px;
 }
 
-.main--wrapper {
+#main--wrapper {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
