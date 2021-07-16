@@ -1,7 +1,7 @@
 body {
     padding-bottom: 55px;
 }
-.contact--wrapper {
+#contact--wrapper {
     background-color: #FAFAFA;
     display: flex;
     flex-direction: row;
@@ -95,7 +95,7 @@ select option {
     border: 1px solid #901C1C;
 }
 
-.div--wrapper {
+#div--wrapper {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;

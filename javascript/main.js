@@ -1,72 +1,49 @@
-// DOM elements
-let navBarBtns = document.getElementsByClassName("nav--bar");
-let navBarWrapper = document.getElementsByClassName("nav--wrapper");
-let photographeWrapper = document.getElementsByClassName("photographe--wrapper");
-let mainWrapper = document.getElementById("main--wrapper");
-let portrait = document.getElementsByClassName("portrait");
-let art = document.getElementsByClassName("art");
-let fashion = document.getElementsByClassName("fashion");
-let architecture = document.getElementsByClassName("architecture");
-let travel = document.getElementsByClassName("travel");
-let sports = document.getElementsByClassName("sports");
-let animals = document.getElementsByClassName("animals");
-let events = document.getElementsByClassName("events");
+fetch('../data.json').then(response => {
+return response.json();
+  }).then(data => {
+    data.photographers.forEach(photographer => 
+    {
+      document.getElementById("main--wrapper").innerHTML += `
+      <div class="photographe--wrapper portrait events travel animals">
+        <a class="wrapper--link" href="./html/photographers.html"><img class="photographe--profil" src="./images/photoID/${photographer.portrait}" alt=""></a>
+        <a class="wrapper--link" href="./html/photographers.html"><h2 class="photographe--nom">${photographer.name}</h2></a>
+        <p class="photographe--ville">${photographer.city}, ${photographer.country}</p>
+        <p class="photographe--texte">${photographer.tagline}</p>
+        <p class="photographe--prix">${photographer.price}€/jour</p>
+        <div class="selection--wrapper">
+          <span class="photographe--selection">#${photographer.tags[0]}</span>
+          <span class="photographe--selection">#${photographer.tags[1]}</span>
+          <span class="photographe--selection">#${photographer.tags[2]}</span>
+          <span class="photographe--selection">#${photographer.tags[3]}</span>
+        </div>
+      </div> 
+      `;
+      // for (let i = 0; i < ; i++) {
+      //   document.getElementById("selection--wrapper").innerHTML += `
+      //   <span class="photographe--selection">#${photographer.tags[i]}</span>
+      //   `
+      // }
+    });
+    
+  })
+  // .then(data => {
+  //   console.log(data.photographers);
+  //   data.photographers.forEach(function(el)
+  //   {
+  //     document.getElementsByClassName("selection--wrapper").innerHTML += 
+  //     `
+  //     <span class="photographe--selection">#${photographer.tags.el}</span>
+  //     `
+  //   });
+  // })
 
-// console.log(mainWrapper);
-// Listener
-for (let i = 0; navBarBtns.length > i; i++) {
-    navBarBtns[i].addEventListener("click", navBarFilter);
+function showTags(el) {
+  for (let i = 0; i < el.length; i++) {
+    
+  }
 }
 
-// Functions
-
-function navBarFilter() {
-    for (let i = 0; navBarBtns.length > i; i++) {
-        navBarBtns[i].onclick = function() {
-            navBarBtns[i].style.backgroundColor = '#901C1C';
-            navBarBtns[i].style.color = 'white';
-        }
-    }
-}
-
-function filterSelection(el) {
-    if (el == "portrait") {
-        for (let i = 0; i< photographeWrapper.length; i++) {
-            photographeWrapper[i].style.display = "none";
-        }
-        console.log(el);
-        for (let i = 0; i< portrait.length; i++) {
-            portrait[i].style.display = "block";
-        }
-    }
-}
-
-function removeClass() {
-    navBarBtns.className += " off";
-}
-
-function addClass() {
-    navBarBtns.className += " on";
-}
-
-console.log();
-
-// var btnContainer = document.getElementById("myBtnContainer");
-// var btns = btnContainer.getElementsByClassName("btn");
-// for (var i = 0; i < btns.length; i++) {
-//   btns[i].addEventListener("click", function() {
-//     var current = document.getElementsByClassName("active");
-//     current[0].className = current[0].className.replace(" active", "");
-//     this.className += " active";
-//   });
-// }
-
-// for (i = 0; i < li.length; i++) {
-//     a = li[i].getElementsByTagName("a")[0];
-//     txtValue = a.textContent || a.innerText;
-//     if (txtValue.toUpperCase().indexOf(filter) > -1) {
-//       li[i].style.display = "";
-//     } else {
-//       li[i].style.display = "none";
-//     }
-//   }
+// document.getElementsByClassName("selection--wrapper").innerHTML += 
+//     `
+    // <span class="photographe--selection">#${photographer.tags}</span>
+//     `
