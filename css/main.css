@@ -51,6 +51,7 @@ a {
     position: relative;
     margin-right: 5px;
     cursor: pointer;
+    text-transform: capitalize;
 }
 
 .nav--bar:hover, .nav--bar:focus {
@@ -125,6 +126,7 @@ a {
     box-sizing: border-box;
     border-radius: 25px;
     padding: 4px;
+    margin-right: 5px;
     color: #901C1C;
 }
 
