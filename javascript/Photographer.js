@@ -14,11 +14,11 @@ class Photographer {
     render() { 
         let tags = " ";
         this.tags.forEach(tag => {
-            tags += `<span class="photographe--selection">#${tag}</span>`
+            tags += `<span class="photographe--selection" id="${tag}">#${tag}</span>`
         });
         
         return ` 
-        <div class="photographe--wrapper portrait events travel animals">
+        <div id="photographe--wrapper" >
             <a class="wrapper--link" href="./html/photographers.html"><img class="photographe--profil" src="./images/photoID/${this.portrait}" alt=""></a>
             <a class="wrapper--link" href="./html/photographers.html"><h2 class="photographe--nom">${this.name}</h2></a>
             <p class="photographe--ville">${this.city}, ${this.country}</p>

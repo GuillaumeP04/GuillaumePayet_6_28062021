@@ -23,7 +23,7 @@ a {
     text-decoration: none;
 }
 
-.nav--active {
+#nav--active {
     background-color: #DB8876;
     border: #DB8876 1px solid;
     border-radius: 10px;
@@ -54,7 +54,12 @@ a {
     text-transform: capitalize;
 }
 
-.nav--bar:hover, .nav--bar:focus {
+.nav--bar:focus, .nav--bar:hover, .nav--bar:active {
+    background-color: #901C1C;
+    color: white;
+}
+
+.nav--bar__active {
     background-color: #901C1C;
     color: white;
 }
@@ -89,7 +94,7 @@ a {
     margin: 0px;
 }
 
-.photographe--wrapper {
+#photographe--wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -147,4 +152,8 @@ a {
 .photographe--prix {
     color: #757575;
     margin: 5px;
+}
+
+.hide {
+    display: none;
 }
