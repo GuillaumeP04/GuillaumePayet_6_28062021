@@ -2,6 +2,7 @@ class List {
     constructor () {
         this.all = [];
         this.tags = new Set();
+        this.tagSelected =  [];
     }
 
     hydrate(photographers) {
@@ -29,30 +30,41 @@ class List {
         })
         document.getElementById("tags").innerHTML = htmlNavBar;
     }
-
     
-    displayFilter(photographers) {
+    displayFilter() {
         let navbarButtons = document.querySelectorAll(".nav--bar");
-        let navbarActive = document.getElementById("nav--active");
-        let htmlFilter = " ";
-        let htmlList = new Set();
-        photographers.forEach(item => {
-            let photographer = new Photographer(item);
-            item.tags.forEach(tag => {
-                navbarButtons.forEach(button => {
-                    button.addEventListener("click", function() {
-                        item
-                        if (button.textContent === "#" + tag) {
-                            navbarActive.style.display = "block";
-                            button.classList.add("nav--bar__active");
-                            console.log(photographer); 
-                        } else {
-                            htmlFilter += photographer.render();
-                        }
-                    })
-                })
+        navbarButtons.forEach(button => {
+            button.addEventListener("click", () => {
+                this.tagSelected.push(button.getAttribute("id"));
+                if (this.all !== this.tagSelected) {
+                    this.activateFilter(button);
+                    console.log(this.tagSelected);
+                } else { 
+                    this.desactivateFilter(button)
+                    // console.log(this.all)
+                }
+                this.filter();
+            });
+        });
+    }
+
+    activateFilter(button) {
+        button.classList.add("nav--bar__active");
+    }
+    
+    desactivateFilter(button) {
+        button.classList.remove("nav--bar__active")
+    }
+    
+    filter() {
+        let list = this.all.filter(photographe => {
+            let keep = false; 
+            this.tagSelected.forEach(tag => {
+                if (photographe.tags.includes(tag)) {
+                    keep =  true;
+                }
             })
         })
-        document.querySelectorAll("#photographe--wrapper").innerHTML = htmlFilter;
+        this.displayPhotographer(list)
     }
 }

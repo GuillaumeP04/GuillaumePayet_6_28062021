@@ -5,9 +5,9 @@ fetch('../data.json')
 .then(response => response.json())
 .then(data => {
   list.hydrate(data.photographers);
-  list.displayPhotographer(data.photographers);
+  list.displayPhotographer();
   list.displayTags();
-  list.displayFilter(data.photographers);
+  list.displayFilter();
   
 })
 

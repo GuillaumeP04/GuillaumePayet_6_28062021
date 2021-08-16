@@ -18,7 +18,7 @@ class Photographer {
         });
         
         return ` 
-        <div id="photographe--wrapper" >
+        <div class="photographe--wrapper" id="${this.id}">
             <a class="wrapper--link" href="./html/photographers.html"><img class="photographe--profil" src="./images/photoID/${this.portrait}" alt=""></a>
             <a class="wrapper--link" href="./html/photographers.html"><h2 class="photographe--nom">${this.name}</h2></a>
             <p class="photographe--ville">${this.city}, ${this.country}</p>
