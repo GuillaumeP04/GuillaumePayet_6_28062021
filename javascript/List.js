@@ -33,20 +33,14 @@ class List {
     
     listenerForFiltering() {
         document.querySelectorAll(".nav--bar").forEach(button => {
-            button.addEventListener("click", (e) => {
+            button.addEventListener("click", () => {
                 let tag = button.getAttribute("id");
-                console.log(this.tagSelected)
                 if (this.tagSelected.has(tag)) {
                     this.removeFilter(button);
-                } 
-                if (!this.tagSelected.has(tag)) { 
-                    // this.addFilter(button);
-                    console.log(123)
+                } else { 
+                    this.addFilter(button);
                 }
-                if (this.tagSelected.size == 0) {
-                    this.tagSelected.add(this.tags)
-                } 
-                console.log(this.tags);
+                console.log(this.tagSelected);
                 this.filter();
             });
         });

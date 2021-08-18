@@ -40,12 +40,11 @@ class Contact {
     displayPhotos(medias) {
         let html = " ";
         let url = window.location.search;
-        let photos = new Photos(medias);
         url = url.replace("?id=", '');
         medias.forEach(media => {
             if (media.photographerId == url) {
+                let photos = new Photos(media);
                 html += photos.renderPhotos(media);
-                console.log(123)
             }  
             document.getElementById("div--wrapper").innerHTML = html;
         });
