@@ -19,14 +19,35 @@ class Photographer {
         
         return ` 
         <div class="photographe--wrapper" id="${this.id}">
-            <a class="wrapper--link" href="./html/photographers.html"><img class="photographe--profil" src="./images/photoID/${this.portrait}" alt=""></a>
-            <a class="wrapper--link" href="./html/photographers.html"><h2 class="photographe--nom">${this.name}</h2></a>
+            <a class="wrapper--link" href="./html/profil.html?id=${this.id}">
+            <img class="photographe--profil" src="./images/photoID/${this.portrait}" alt="">
+            <h2 class="photographe--nom">${this.name}</h2>
             <p class="photographe--ville">${this.city}, ${this.country}</p>
             <p class="photographe--texte">${this.tagline}</p>
             <p class="photographe--prix">${this.price}€/jour</p>
-            <div id="selection--wrapper">
-             ${tags}
-            </div>
+            <div id="selection--wrapper">${tags}</div>
+            </a>
         </div> `;
+    }
+
+    renderProfil() {
+        let tags = " ";
+        this.tags.forEach(tag => {
+            tags += `<span class="photographe--selection" id="${tag}">#${tag}</span>`
+        });
+
+        return `
+          <div>
+            <h2 class="photographe--nom">${this.name}</h2>
+            <p class="photographe--ville">${this.city}, ${this.country}</p>
+            <p class="photographe--texte">${this.tagline}</p>
+            <div id="selection--wrapper">${tags}</div> 
+          </div>
+          <div>
+            <button id="ouvir--form" class="contact--form__lien" onclick="ouvrirForm()">Contactez-moi</button>
+          </div>
+          <div>
+            <img class="photographe--profil" src="../images/photoID/${this.portrait}" alt="">
+          </div> `;
     }
 }

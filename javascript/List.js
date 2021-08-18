@@ -2,7 +2,7 @@ class List {
     constructor () {
         this.all = [];
         this.tags = new Set();
-        this.tagSelected =  [];
+        this.tagSelected = new Set();
     }
 
     hydrate(photographers) {
@@ -15,9 +15,9 @@ class List {
         });
     }
 
-    displayPhotographer() {
+    displayPhotographers(list) {
         let html = " ";
-        this.all.forEach(photographer => {
+        list.forEach(photographer => {
             html += photographer.render();
         })
         document.getElementById("main--wrapper").innerHTML = html;
@@ -31,30 +31,39 @@ class List {
         document.getElementById("tags").innerHTML = htmlNavBar;
     }
     
-    displayFilter() {
-        let navbarButtons = document.querySelectorAll(".nav--bar");
-        navbarButtons.forEach(button => {
-            button.addEventListener("click", () => {
-                this.tagSelected.push(button.getAttribute("id"));
-                if (this.all !== this.tagSelected) {
-                    this.activateFilter(button);
-                    console.log(this.tagSelected);
-                } else { 
-                    this.desactivateFilter(button)
-                    // console.log(this.all)
+    listenerForFiltering() {
+        document.querySelectorAll(".nav--bar").forEach(button => {
+            button.addEventListener("click", (e) => {
+                let tag = button.getAttribute("id");
+                console.log(this.tagSelected)
+                if (this.tagSelected.has(tag)) {
+                    this.removeFilter(button);
+                } 
+                if (!this.tagSelected.has(tag)) { 
+                    // this.addFilter(button);
+                    console.log(123)
                 }
+                if (this.tagSelected.size == 0) {
+                    this.tagSelected.add(this.tags)
+                } 
+                console.log(this.tags);
                 this.filter();
             });
         });
     }
-
-    activateFilter(button) {
+    
+    addFilter(button) {
+        let tag = button.getAttribute("id");
         button.classList.add("nav--bar__active");
+        this.tagSelected.add(tag);
     }
     
-    desactivateFilter(button) {
-        button.classList.remove("nav--bar__active")
+    removeFilter(button) {
+        let tag = button.getAttribute("id");
+        button.classList.toggle("nav--bar__active")
+        this.tagSelected.delete(tag)
     }
+
     
     filter() {
         let list = this.all.filter(photographe => {
@@ -64,7 +73,8 @@ class List {
                     keep =  true;
                 }
             })
+            return keep;
         })
-        this.displayPhotographer(list)
+        this.displayPhotographers(list)
     }
 }

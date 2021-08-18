@@ -54,17 +54,15 @@ a {
     text-transform: capitalize;
 }
 
-.nav--bar:focus, .nav--bar:hover, .nav--bar:active {
+.nav--bar:focus, .nav--bar:hover {
     background-color: #901C1C;
     color: white;
 }
 
 .nav--bar__active {
     display: block;
-}
-
-.nav--bar__desactive {
-    display: none;
+    background-color: #901C1C;
+    color: white;
 }
 
 .off {
@@ -150,11 +148,13 @@ a {
 .photographe--texte {
     margin: 5px 0px;
     font-weight: 500;
+    color: black;
+    margin-left: 5px;
 }
 
 .photographe--prix {
     color: #757575;
-    margin: 5px;
+    margin: 5px 5px 10px 5px;
 }
 
 .hide {

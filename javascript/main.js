@@ -1,13 +1,12 @@
-let tagList = new Set();
-let list = new List();
-let photographerList = new Set();
+
 fetch('../data.json')
 .then(response => response.json())
 .then(data => {
+  let list = new List();
+
   list.hydrate(data.photographers);
-  list.displayPhotographer();
+  list.displayPhotographers(list.all);
   list.displayTags();
-  list.displayFilter();
-  
+  list.listenerForFiltering();
 })
 
