@@ -27,19 +27,8 @@
                     </select>
                 </form>
             </div>
-            <div id="div--wrapper">
-                <!-- <div class="image--wrapper" date="" price="" id="">
-                    <a href=""><img class="photos" src="../images/243/Animals_Rainbow.jpg" alt=""></a>
-                    <div class="description--wrapper">
-                        <p class="description"></p>
-                        <i class="fas fa-heart like"></i>
-                    </div>
-                </div>` -->
-            </div>
-            <div class="like--wrapper">
-                <i class="fas fa-heart"></i> 
-                <p>400€/jour</p>
-            </div>
+            <div id="div--wrapper"></div>
+            <div id="like--wrapper"></div>
             <div class="background">
                 <div>
                     <i id="fermer--form" class="fas fa-times fermer"></i>
@@ -50,8 +39,8 @@
                     method="GET"
                     onsubmit="submitForm"
                     >  
-                        <p>Contactez-moi</p>
-                        <p>Mimi Keel</p>
+                        <div id="modal--contact">
+                        </div>
                         <label for="prenom">Prénom</label>
                         <input 
                         id="prenom" 

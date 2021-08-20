@@ -9,6 +9,7 @@ class Photos {
         this.likes = data.likes;
         this.date = data.date;
         this.price = data.price;
+        this.video = data.video;
     }
 
     renderPhotos() {
@@ -17,20 +18,20 @@ class Photos {
             <a href=""><img class="photos" src="../images/${this.photographerId}/${this.image}" alt="${this.title}"></a>
             <div class="description--wrapper">
                 <p class="description">${this.title}</p>
-                <span id="photographer--like">${this.likes}<i class="fas fa-heart" id="like"></i></span>
+                <span class="photographer--like" like="${this.likes}">${this.likes}<i class="fas fa-heart like" like="${this.likes}"></i></span>
             </div>
         </div>`
     }
 
     renderVideos() {
         return `
-        <div class="image--wrapper" date="${this.date}" price="${this.price}" id="${this.id}">
-            <video width="320" height="240" controls>
-                <source src="../images/${this.photographerId}/${this.image}" type="video/mp4">
+        <div class="image--wrapper" date="${this.date}" price="${this.price}" photoId="${this.id}">
+            <video width="350" height="250" controls>
+                <source src="../images/${this.photographerId}/${this.video}" type="video/mp4">
             </video>
             <div class="description--wrapper">
                 <p class="description">${this.title}</p>
-                <span id="photographer--like">${this.likes}<i class="fas fa-heart" id="like"></i></span>
+                <span class="photographer--like">${this.likes}<i class="fas fa-heart like" id=""></i></span>
             </div>
         </div>`
     }

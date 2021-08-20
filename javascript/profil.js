@@ -8,6 +8,10 @@ fetch('../data.json')
   contact.hydratePhotos(data.medias);
   contact.displayProfil();
   contact.displayPhotos(data.medias);
+  contact.likeListener();
+  contact.displayModalName();
+  contact.displayDailyPrice();
+  // contact.displayVideos(data.medias);
 })
 
 

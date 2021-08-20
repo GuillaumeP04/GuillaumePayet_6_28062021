@@ -50,4 +50,16 @@ class Photographer {
             <img class="photographe--profil" src="../images/photoID/${this.portrait}" alt="">
           </div> `;
     }
+
+    renderModalName() {
+        return `
+        <p>Contactez-moi</p>
+        <p>${this.name}</p>`;
+    }
+
+    renderDailyPrice() {
+        return `
+            <i class="fas fa-heart"></i> 
+            <p>${this.price}€/jour</p>`;
+    }
 }

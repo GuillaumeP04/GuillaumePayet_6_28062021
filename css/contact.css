@@ -139,7 +139,7 @@ select option {
     font-size: 25px;
 }
 
-.like--wrapper {
+#like--wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -152,12 +152,12 @@ select option {
     border-radius: 5px;
 }
 
-.like--wrapper i {
+#like--wrapper i {
     font-size: 25px;
     margin-left: 15px;
 }
 
-.like--wrapper p {
+#like--wrapper p {
     font-size: 25px;
     margin-right: 15px;
 }
