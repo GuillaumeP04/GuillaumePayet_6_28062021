@@ -11,7 +11,8 @@ fetch('../data.json')
   contact.likeListener();
   contact.displayModalName();
   contact.displayDailyPrice();
-  // contact.displayVideos(data.medias);
+  contact.lightboxListener();
+  contact.trieListener();
 })
 
 

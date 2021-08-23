@@ -15,7 +15,7 @@ class Photos {
     renderPhotos() {
         return `
         <div class="image--wrapper" date="${this.date}" price="${this.price}" id="${this.id}">
-            <a href=""><img class="photos" src="../images/${this.photographerId}/${this.image}" alt="${this.title}"></a>
+            <img id="image--link" class="photos" src="../images/${this.photographerId}/${this.image}" alt="${this.title}">
             <div class="description--wrapper">
                 <p class="description">${this.title}</p>
                 <span class="photographer--like" like="${this.likes}">${this.likes}<i class="fas fa-heart like" like="${this.likes}"></i></span>
@@ -31,7 +31,7 @@ class Photos {
             </video>
             <div class="description--wrapper">
                 <p class="description">${this.title}</p>
-                <span class="photographer--like">${this.likes}<i class="fas fa-heart like" id=""></i></span>
+                <span class="photographer--like" like="${this.likes}">${this.likes}<i class="fas fa-heart like" id=""></i></span>
             </div>
         </div>`
     }

@@ -55,31 +55,6 @@ class Contact {
         });
     }
 
-    // displayVideos (medias) {
-    //     let html = " ";
-    //     let url = window.location.search;
-    //     url = url.replace("?id=", '');
-    //     medias.forEach(media => {
-    //         let videos = media.video;
-    //     })
-    //     document.getElementById("div--wrapper").innerHTML = html;
-    // }
-
-    likeListener() {
-        let hearts = document.querySelectorAll(".like");
-        hearts.forEach(heart => {
-            heart.addEventListener("click", this.addLike)
-        })
-    }
-
-    addLike() {
-        document.querySelectorAll(".photographer--like").forEach(likes => {
-            let numLikes = likes.getAttribute("like");
-            numLikes++;
-            console.log(numLikes)
-        })
-    }
-
     displayModalName() {
         let html = " ";
         let url = window.location.search;
@@ -103,5 +78,68 @@ class Contact {
         })
         document.getElementById("like--wrapper").innerHTML = html;
     }
+
+    displayLightbox() {
+        let lightbox = document.getElementById("lightbox");
+        lightbox.style.display = "block";
+    }
     
+    disableLightbox() {
+        document.getElementById("lightbox").style.display = "none";
+    }
+    
+    lightboxListener() {
+        document.getElementById("close").addEventListener("click", this.disableLightbox)
+        document.querySelectorAll("#image--link").forEach(image => {
+            image.addEventListener("click", this.displayLightbox)
+        })
+    }
+    
+    likeListener() {
+        let hearts = document.querySelectorAll(".like");
+        let numLikes = document.querySelectorAll(".photographer--like")
+        hearts.forEach(heart => {
+            heart.addEventListener("click", function () {
+                numLikes.forEach(num => {
+                    num = num.getAttribute("like");
+                    num++; 
+                    console.log(num)
+                })
+            })
+        })
+    }
+
+    trieListener() {
+        let pop = document.getElementById("pop");
+        let date = document.getElementById("date");
+        let titre = document.getElementById("titre");
+        let up = document.getElementById("select--up");
+        let down = document.getElementById("select--down");
+        pop.onclick = function() {
+            pop.style.display = "block"
+            date.style.display = "block"
+            titre.style.display = "block"
+            down.style.display = "none"
+            up.style.display = "block"
+        }
+        down.onclick = function() {
+            pop.style.display = "block"
+            date.style.display = "block"
+            titre.style.display = "block"
+            down.style.display = "none"
+            up.style.display = "block"
+        }
+        date.onclick = function() {
+            titre.style.display = "none"
+            pop.style.display = "none"
+            up.style.display = "none"
+            down.style.display = "block"
+        }
+        titre.onclick = function() {
+            pop.style.display = "none"
+            date.style.display = "none"
+            up.style.display = "none"
+            down.style.display = "block"
+        }
+    }
 }

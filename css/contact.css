@@ -22,19 +22,62 @@ body {
     color: black;
 }
 
-.form--trie {
-    background-color: #901C1C;
-    color: white;
-    padding: 5px;
-    border: 1px solid #901C1C;
-    border-radius: 5px;
-    margin: 15px 0px 25px 0px;
+.custom--select {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
-select option {
+.select--text {
+    color: black;
+    margin: 20px 15px 0px 0px;
+    font-weight: bold;
+}
+
+#option--wrapper {
+    margin-top: 10px;
     background: #901C1C;
     color: white;
+    width: fit-content;
+    cursor: pointer;
+    position: relative;
+    border-radius: 5px;
+    padding: 5px;
+    z-index: 3;
 }
+
+#pop {
+    padding: 10px;
+    padding-right: 25px;
+}
+
+#date {
+    border-top: solid 1px white;
+    padding: 10px;
+    padding-right: 25px;
+    display: none;
+}
+
+#titre {
+    border-top: solid 1px white;
+    padding: 10px;
+    padding-right: 25px;
+    display: none;
+}
+
+#select--up {
+    position: absolute;
+    right: 7px;
+    top: 18px;
+    display: none;
+}
+
+#select--down {
+    position: absolute;
+    right: 7px;
+    top: 18px;
+}
+
 
 .background {
     height: fit-content;
@@ -113,6 +156,7 @@ select option {
     width: 350px;
     border-radius: 5px;
     object-fit: cover;
+    cursor: pointer;
 }
 
 .videos {
@@ -132,6 +176,7 @@ select option {
     font-size: 24px;
     color: #901C1C;
     margin: 0px;
+    cursor: pointer;
 }
 
 .like {
@@ -173,4 +218,48 @@ select option {
     opacity: 0.7;
     display: none;
     z-index: 2;
+}
+
+#lightbox {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    color: white;
+    background-color: white;
+    opacity: 1;
+    display: flex;
+    display: none;
+    z-index: 2;
+}
+
+#previous {
+    color: #901C1C;
+    font-size: 50px;
+    position: fixed;
+    top: 50%;
+    left: 50px;
+    z-index: 2;
+    cursor: pointer;
+}
+
+#next {
+    color: #901C1C;
+    font-size: 50px;
+    position: fixed;
+    top: 50%;
+    right: 50px;
+    z-index: 2;
+    cursor: pointer;
+}
+
+#close {
+    color: #901C1C;
+    font-size: 50px;
+    position: fixed;
+    top: 50px;
+    right: 50px;
+    z-index: 2;
+    cursor: pointer;
 }

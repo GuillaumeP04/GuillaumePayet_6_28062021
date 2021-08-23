@@ -17,15 +17,15 @@
         </header>
         <main>
             <div id="contact--wrapper"></div>
-            <div>
-                <form action="">
-                    <label for="trie">Trier par</label>
-                    <select class="form--trie" name="trie" id="trie">
-                        <option value="popularité">Popularité</option>
-                        <option value="date">Date</option>
-                        <option value="titre">Titre</option>
-                    </select>
-                </form>
+            <div class="custom--select">
+                <p class="select--text">Trier par</p>
+                <div id="option--wrapper">
+                    <i class="fas fa-chevron-down" id="select--down"></i>
+                    <option value="" id="pop">Popularité</option>
+                    <option value="" id="date">Date</option>
+                    <option value="" id="titre">Titre</option>
+                    <i class="fas fa-chevron-up " id="select--up"></i>
+                </div>
             </div>
             <div id="div--wrapper"></div>
             <div id="like--wrapper"></div>
@@ -75,6 +75,11 @@
                 </div>
             </div>
             <span id="blur"></span>
+            <div id="lightbox">
+                <i class="fas fa-times" id="close"></i>
+                <i class="fas fa-chevron-left" id="previous"></i>
+                <i class="fas fa-chevron-right" id="next"></i>
+            </div>
         </main>
         <script src="../javascript/profil.js"></script>
         <script src="../javascript/Photographer.js"></script>
