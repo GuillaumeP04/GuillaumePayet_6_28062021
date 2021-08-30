@@ -43,7 +43,6 @@ body {
     position: relative;
     border-radius: 5px;
     padding: 5px;
-    z-index: 3;
 }
 
 #pop {

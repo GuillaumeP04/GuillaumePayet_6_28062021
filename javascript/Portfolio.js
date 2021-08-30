@@ -1,9 +1,8 @@
-class Contact {
+class Portfolio {
     constructor() {
         this.all = [];
         this.tags = new Set();
         this.allPhotos = [];
-        this.allVideos = [];
     }
 
     hydrate(photographers) {
@@ -16,15 +15,15 @@ class Contact {
         });
     }
 
-    hydratePhotos(medias) {
-        medias.forEach(item => {
-            let photos = new Photos(item)
-            this.allPhotos.push(photos)
-            item.tags.forEach(tag => {
-                this.tags.add(tag)
-            })
-        });
-    }
+    // hydratePhotos(medias) {
+    //     medias.forEach(item => {
+    //         let photos = new Photos(item)
+    //         this.allPhotos.push(photos)
+    //         item.tags.forEach(tag => {
+    //             this.tags.add(tag)
+    //         })
+    //     });
+    // }
 
     displayProfil() {
         let html = " ";
@@ -95,16 +94,23 @@ class Contact {
         })
     }
     
-    likeListener() {
-        let hearts = document.querySelectorAll(".like");
-        let numLikes = document.querySelectorAll(".photographer--like")
-        hearts.forEach(heart => {
-            heart.addEventListener("click", function () {
-                numLikes.forEach(num => {
-                    num = num.getAttribute("like");
-                    num++; 
-                    console.log(num)
-                })
+    listenForLike() {
+        let firstClick = 0;
+        document.querySelectorAll(".like").forEach(heart => {
+            heart.addEventListener("click", () => {
+                let parent = heart.closest(".photographer--like");
+                let like = parent.getAttribute("like");
+                // firstClick++;
+                if (firstClick == 1){
+                    like--;
+                    parent.innerHTML = like + `<i class="fas fa-heart like"></i>`;
+                    firstClick--;
+                } else {
+                    like++;
+                    parent.innerHTML = like + `<i class="fas fa-heart like"></i>`;
+                    firstClick++;
+                    console.log(firstClick)
+                } 
             })
         })
     }

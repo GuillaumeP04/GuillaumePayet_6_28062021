@@ -7,6 +7,6 @@ fetch('../data.json')
   list.hydrate(data.photographers);
   list.displayPhotographers(list.all);
   list.displayTags();
-  list.listenerForFiltering();
+  list.listenForFiltering();
 })
 

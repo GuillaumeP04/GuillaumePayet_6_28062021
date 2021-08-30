@@ -31,7 +31,7 @@ class List {
         document.getElementById("tags").innerHTML = htmlNavBar;
     }
     
-    listenerForFiltering() {
+    listenForFiltering() {
         document.querySelectorAll(".nav--bar").forEach(button => {
             button.addEventListener("click", () => {
                 let tag = button.getAttribute("id");
@@ -60,11 +60,18 @@ class List {
 
     
     filter() {
-        let list = this.all.filter(photographe => {
+        let list = this.all;
+        if (this.tagSelected.size == 0) {
+            this.displayPhotographers(list)
+            return true;
+        }
+        list = this.all.filter(photographe => {
             let keep = false; 
             this.tagSelected.forEach(tag => {
                 if (photographe.tags.includes(tag)) {
                     keep =  true;
+                } else {
+                    
                 }
             })
             return keep;
