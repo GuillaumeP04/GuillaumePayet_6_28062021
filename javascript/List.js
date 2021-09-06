@@ -40,7 +40,6 @@ class List {
                 } else { 
                     this.addFilter(button);
                 }
-                console.log(this.tagSelected);
                 this.filter();
             });
         });
@@ -71,7 +70,7 @@ class List {
                 if (photographe.tags.includes(tag)) {
                     keep =  true;
                 } else {
-                    
+                    keep = false;
                 }
             })
             return keep;

@@ -30,13 +30,13 @@ class Photographer {
         </div> `;
     }
 
-    renderProfil() {
+    displayProfil() {
         let tags = " ";
         this.tags.forEach(tag => {
             tags += `<span class="photographe--selection" id="${tag}">#${tag}</span>`
         });
 
-        return `
+        document.getElementById("contact--wrapper").innerHTML = `
           <div>
             <h2 class="photographe--nom">${this.name}</h2>
             <p class="photographe--ville">${this.city}, ${this.country}</p>
@@ -51,15 +51,14 @@ class Photographer {
           </div> `;
     }
 
-    renderModalName() {
-        return `
+    displayModalName() {
+        document.getElementById("modal--contact").innerHTML = `
         <p>Contactez-moi</p>
         <p>${this.name}</p>`;
     }
 
-    renderDailyPrice() {
-        return `
-            <i class="fas fa-heart"></i> 
+    displayDailyPrice() {
+        document.getElementById("like--wrapper").innerHTML = `
             <p>${this.price}€/jour</p>`;
     }
 }

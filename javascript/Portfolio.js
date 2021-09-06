@@ -1,124 +1,74 @@
 class Portfolio {
+
     constructor() {
         this.all = [];
-        this.tags = new Set();
-        this.allPhotos = [];
+        this.likes = new Set();
+        this.photoId = new Set();
+        this.imageLightbox = new Set();
     }
 
-    hydrate(photographers) {
-        photographers.forEach(item => {
-            let photographer = new Photographer(item)
-            this.all.push(photographer)
-            item.tags.forEach(tag => {
-                this.tags.add(tag)
-            })
+    hydrate(medias) {
+        medias.forEach(media => {
+            this.all.push(media);
         });
     }
-
-    // hydratePhotos(medias) {
-    //     medias.forEach(item => {
-    //         let photos = new Photos(item)
-    //         this.allPhotos.push(photos)
-    //         item.tags.forEach(tag => {
-    //             this.tags.add(tag)
-    //         })
-    //     });
-    // }
-
-    displayProfil() {
-        let html = " ";
-        let url = window.location.search;
-        url = url.replace("?id=", '');
-        this.all.forEach(photographer => {
-            if (photographer.id == url) {
-                html += photographer.renderProfil()
-            }
-        })
-        document.getElementById("contact--wrapper").innerHTML = html;
-    }
     
-    displayPhotos(medias) {
+    display() {
         let html = " ";
-        let url = window.location.search;
-        url = url.replace("?id=", '');
-        medias.forEach(media => {
-            if (media.video && media.photographerId == url) {
-                let photos = new Photos(media);
-                html += photos.renderVideos(media)
+        this.all.forEach(media => {
+            if (media.image && media.photographerId == getId()) {
+                let image = new Image(media);
+                html += image.render(media);
             } 
-            if (media.photographerId == url && media.image) {
-                let photos = new Photos(media);
-                html += photos.renderPhotos(media);
+            if (media.video && media.photographerId == getId()) {
+                let video = new Video(media);
+                html += video.render(media);
             } 
             document.getElementById("div--wrapper").innerHTML = html;
         });
     }
 
-    displayModalName() {
-        let html = " ";
-        let url = window.location.search;
-        url = url.replace("?id=", '');
-        this.all.forEach(photographer => {
-            if (photographer.id == url) {
-                html += photographer.renderModalName();
-            }
-        })
-        document.getElementById("modal--contact").innerHTML = html;
-    }
-
-    displayDailyPrice() {
-        let html = " ";
-        let url = window.location.search;
-        url = url.replace("?id=", '');
-        this.all.forEach(photographer => {
-            if (photographer.id == url) {
-                html += photographer.renderDailyPrice();
-            }
-        })
-        document.getElementById("like--wrapper").innerHTML = html;
-    }
-
-    displayLightbox() {
-        let lightbox = document.getElementById("lightbox");
-        lightbox.style.display = "block";
-    }
+    // displayLightbox() {
+    //     document.getElementById("lightbox--wrapper").style.display = "block";
+    // }
     
-    disableLightbox() {
-        document.getElementById("lightbox").style.display = "none";
-    }
     
     lightboxListener() {
-        document.getElementById("close").addEventListener("click", this.disableLightbox)
-        document.querySelectorAll("#image--link").forEach(image => {
-            image.addEventListener("click", this.displayLightbox)
+        let html = " ";
+        document.querySelectorAll("#image--link").forEach(images => {
+            images.addEventListener("click", (e) => {
+                let image = e.target;
+                console.log(image);
+                image.classList.toggle("lightbox--image");
+                document.getElementById("lightbox").style.display = "block";
+            });
         })
+    }
+
+    disableLightbox() {
+        document.getElementById("close").addEventListener("click", () => {
+            document.getElementById("lightbox").style.display = "none";
+        });
     }
     
     listenForLike() {
-        let firstClick = 0;
         document.querySelectorAll(".like").forEach(heart => {
             heart.addEventListener("click", () => {
                 let parent = heart.closest(".photographer--like");
                 let like = parent.getAttribute("like");
-                // firstClick++;
-                if (firstClick == 1){
-                    like--;
-                    parent.innerHTML = like + `<i class="fas fa-heart like"></i>`;
-                    firstClick--;
-                } else {
+                if (this.likes.size % 2 == 0) {
                     like++;
-                    parent.innerHTML = like + `<i class="fas fa-heart like"></i>`;
-                    firstClick++;
-                    console.log(firstClick)
-                } 
+                } else {
+                    like--;
+                }
+                this.likes.add(like);
+                console.log(this.likes.size);
+                parent.innerHTML = like + `<i class="fas fa-heart like"></i>`;
             })
         })
     }
 
-    trieListener() {
-        let pop = document.getElementById("pop");
-        let date = document.getElementById("date");
-        let titre = document.getElementById("titre");
+    listenForFilter() {
         let up = document.getElementById("select--up");
         let down = document.getElementById("select--down");
         pop.onclick = function() {
@@ -147,5 +97,28 @@ class Portfolio {
             up.style.display = "none"
             down.style.display = "block"
         }
+    }
+
+    listenForPopulaire() {
+        let pop = document.getElementById("pop");
+        let images = document.querySelectorAll(".image--wrapper");
+    }
+    
+    listenForDate() {
+        document.getElementById("date").addEventListener('click', () => {
+            document.querySelectorAll(".image--wrapper").forEach(image => {
+                let date = image.getAttribute("date");
+                console.log(date);
+            }) 
+        })
+    }
+
+    listenForTitle() {
+        document.getElementById("titre").addEventListener('click', () => {
+            document.querySelectorAll(".image--wrapper").forEach(image => {
+                let title = image.getAttribute("title");
+                console.log(title)
+            })
+        })
     }
 }
