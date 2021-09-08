@@ -17,14 +17,16 @@
         </header>
         <main>
             <div id="contact--wrapper"></div>
-            <div class="custom--select">
-                <p class="select--text">Trier par</p>
-                <div id="option--wrapper">
-                    <i class="fas fa-chevron-down" id="select--down"></i>
-                    <option value="" id="pop">Popularité</option>
-                    <option value="" id="date">Date</option>
-                    <option value="" id="titre">Titre</option>
-                    <i class="fas fa-chevron-up " id="select--up"></i>
+            <div id="dropdown--wrapper">
+                <p id="dropdown--text">Trier par</p>
+                <div class="dropdown">
+                    <a class="dropbtn filter" data-filter="populaire">Popularité</a>
+                    <i class="fas fa-chevron-down" id="arrow--down"></i>
+                    <i class="fas fa-chevron-up" id="arrow--up"></i>
+                    <div class="dropdown-content">
+                    <a class="filter" data-filter="date">Date</a>
+                    <a class="filter" data-filter="titre">Titre</a>
+                    </div>
                 </div>
             </div>
             <div id="div--wrapper"></div>
@@ -86,6 +88,7 @@
         <script src="../javascript/Photographer.js"></script>
         <script src="../javascript/Portfolio.js"></script>
         <script src="../javascript/MediaFactory.js"></script>
+        <script src="../javascript/Media.js"></script>
         <script src="../javascript/Video.js"></script>
         <script src="../javascript/Image.js"></script>
         <script src="../javascript/modal.js"></script>

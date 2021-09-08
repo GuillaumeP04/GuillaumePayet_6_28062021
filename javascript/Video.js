@@ -1,4 +1,4 @@
-class Video extends MediaFactory{
+class Video extends Media {
 
     constructor(data) {
         super(data);
@@ -13,7 +13,10 @@ class Video extends MediaFactory{
             </video>
             <div class="description--wrapper">
                 <p class="description">${this.title}</p>
-                <span class="photographer--like" like="${this.likes}">${this.likes}<i class="fas fa-heart like"></i></span>
+                <span>
+                    <span class="photographer--like" data-id="${this.id}">${this.likes}</span>
+                    <i class="fas fa-heart like" data-id="${this.id}"></i>
+                </span>
             </div>
         </div>`
     }

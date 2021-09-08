@@ -59,6 +59,8 @@ class Photographer {
 
     displayDailyPrice() {
         document.getElementById("like--wrapper").innerHTML = `
-            <p>${this.price}€/jour</p>`;
+        <span id="total--like">0</span>
+        <i class="fas fa-heart"></i>
+        <span id="daily-price">${this.price}€/jour</span>`;
     }
 }

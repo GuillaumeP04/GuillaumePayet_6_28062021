@@ -1,4 +1,4 @@
-class Image extends MediaFactory{
+class Image extends Media {
 
     constructor(data) {
         super(data);
@@ -11,7 +11,10 @@ class Image extends MediaFactory{
             <img id="image--link" class="photos" src="../images/${this.photographerId}/${this.image}" alt="${this.title}" photoId="${this.id}">
             <div class="description--wrapper">
                 <p class="description" title ="${this.title}">${this.title}</p>
-                <span class="photographer--like" like="${this.likes}">${this.likes}<i class="fas fa-heart like" like="${this.likes}"></i></span>
+                <span>
+                    <span class="photographer--like" data-id="${this.id}">${this.likes}</span>
+                    <i class="fas fa-heart like" data-id="${this.id}"></i>
+                </span>
             </div>
         </div>`
     }

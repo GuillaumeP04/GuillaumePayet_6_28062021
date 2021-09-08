@@ -7,15 +7,14 @@ fetch('../data.json')
   photographer.displayProfil();
   photographer.displayModalName();
   photographer.displayDailyPrice();
-  
+
   let portfolio = new Portfolio(photographerRaw);
-  portfolio.hydrate(data.medias);
+  let medias = data.medias.filter(media => media.photographerId == getId());
+  portfolio.hydrate(medias);
   portfolio.display();
-  portfolio.lightboxListener();
   portfolio.listenForLike();
-  // portfolio.listenForFilter();
-  // portfolio.listenForPopulaire();
-  // portfolio.listenForDate();
+  portfolio.lightboxListener();
+  portfolio.listenForFilter();
 })
 
 function getId() {
