@@ -32,5 +32,6 @@ function submitForm(e) {
     console.log("Nom: ", x['nom'].value);
     console.log("Email: ", x['email'].value);
     console.log("Message: ", x['message'].value);
+    fermerForm();
 }
 

@@ -209,7 +209,7 @@ body {
 
 #like--wrapper {
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     align-items: center;
     background-color: #DB8876;
     height: 50px;
@@ -222,12 +222,20 @@ body {
 
 #like--wrapper i {
     font-size: 25px;
-    margin-left: 15px;
+    margin-left: 5px;
 }
 
 #like--wrapper span {
     font-size: 25px;
-    margin-right: 15px;
+}
+
+#total--like {
+    margin-left: 10px;
+}
+
+#daily-price {
+    position: absolute;
+    right: 10px;
 }
 
 #blur {

@@ -10,7 +10,6 @@ header {
     flex-direction: row;
     align-items: center;
     margin-bottom: 50px;
-    margin-top: 25px;
 }
 
 .logo {
@@ -40,6 +39,8 @@ a {
 .nav--wrapper {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .nav--bar {
@@ -52,6 +53,7 @@ a {
     margin-right: 5px;
     cursor: pointer;
     text-transform: capitalize;
+    margin-bottom: 5px;
 }
 
 .nav--bar:focus, .nav--bar:hover {
@@ -91,8 +93,9 @@ a {
     font-weight: 400;
     position: absolute;
     right: 25px;
-    top: 45px;
+    top: 20px;
     margin: 0px;
+    margin-left: 10px;
 }
 
 .photographe--wrapper {
@@ -134,6 +137,7 @@ a {
     padding: 4px;
     margin-right: 5px;
     color: #901C1C;
+    cursor: pointer;
 }
 
 .photographe--selection:hover, .photographe--selection:focus {
@@ -171,4 +175,46 @@ a {
 
 .hide {
     display: none;
+}
+
+@media screen and (max-width: 1250px) {
+    #main--wrapper {
+        display: flex;
+        justify-content: space-around;
+    }
+}
+
+@media screen and (max-width: 1030px) {
+    .nav--wrapper:last-child {
+        margin-right: 300px;
+    }
+
+    .title--wrapper h1{
+        font-size: 36px;
+        top: 25px;
+    }
+}
+
+@media screen and (max-width: 930px) {
+    .logo {
+        position: absolute;
+        top: 25px;
+        left: 25px;
+        position: absolute;
+        top: 25px;
+        left: 25px;
+    }
+
+    .nav--wrapper {
+        position: relative;
+        top: 75px;
+    }
+
+    nav {
+        display: flex;
+    }
+
+    #main--wrapper {
+        margin-top: 25px;
+    }
 }

@@ -21,12 +21,12 @@ class Photographer {
         <div class="photographe--wrapper" id="${this.id}">
             <a class="wrapper--link" href="./html/profil.html?id=${this.id}">
             <img class="photographe--profil" src="./images/photoID/${this.portrait}" alt="">
+            </a>
             <h2 class="photographe--nom">${this.name}</h2>
             <p class="photographe--ville">${this.city}, ${this.country}</p>
             <p class="photographe--texte">${this.tagline}</p>
             <p class="photographe--prix">${this.price}€/jour</p>
             <div id="selection--wrapper">${tags}</div>
-            </a>
         </div> `;
     }
 
@@ -59,7 +59,7 @@ class Photographer {
 
     displayDailyPrice() {
         document.getElementById("like--wrapper").innerHTML = `
-        <span id="total--like">0</span>
+        <span id="total--like"></span>
         <i class="fas fa-heart"></i>
         <span id="daily-price">${this.price}€/jour</span>`;
     }

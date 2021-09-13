@@ -43,20 +43,22 @@ class Portfolio {
     }
     
     listenForLike() {
-        document.querySelectorAll(".like").forEach(heart => {
-            heart.addEventListener("click", () => {
-                this.all.forEach(media => {
-                    this.totalLike.push(media.likes);
-                    console.log(this.addLikes(media.likes));
+        this.all.forEach(media => {
+            let like = new Media(media);
+            document.querySelectorAll(".like").forEach(heart => {
+                heart.addEventListener("click", () => {
+                    like.toggle();
                 })
             })
+            this.totalLike.push(media.likes);
+            document.getElementById("total--like").innerHTML = this.addLikes(this.totalLike);
         })
     }
 
-    addLikes(likes) {
+    addLikes(a) {
         let total = 0;
-        for(let i = 0; i < likes.length;) { 
-            total += likes[i];
+        for(let i in a) { 
+            total += a[i];
         }
         return total;
     }
