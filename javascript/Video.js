@@ -24,10 +24,7 @@ class Video extends Media {
     renderLightbox() {
         return `
         <div id="lightbox">
-            <i class="fas fa-times" id="close"></i>
-            <i class="fas fa-chevron-left" id="previous"></i>
-            <i class="fas fa-chevron-right" id="next"></i>
-            <video width="80%" height="85%" controls>
+            <video width="80%" height="85%" controls id="lightbox--video">
                 <source src="../images/${this.photographerId}/${this.video}" type="video/mp4">
             </video>
             <p id="lightbox--description">${this.title}</p>

@@ -22,9 +22,6 @@ class Image extends Media {
     renderLightbox() {
         return `
         <div id="lightbox">
-            <i class="fas fa-times" id="close"></i>
-            <i class="fas fa-chevron-left" id="previous"></i>
-            <i class="fas fa-chevron-right" id="next"></i>
             <img id="lightbox--image" class="photos" src="../images/${this.photographerId}/${this.image}" alt="${this.title}" photoId="${this.id}">
             <p id="lightbox--description">${this.title}</p>
         </div>

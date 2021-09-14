@@ -19,85 +19,129 @@ class Portfolio {
             html += media.render();
             document.getElementById("div--wrapper").innerHTML = html;
         });
-    }    
+    } 
 
     lightboxListener() {
         document.querySelectorAll("#image--link").forEach(images => {
             images.addEventListener("click", (e) => {
-                let image = e.target;
-                console.log(image);
-                image.classList.toggle("lightbox--image");
-                document.getElementById("lightbox").style.display = "block";
-                document.getElementById("close").addEventListener("click", () => {
-                    document.getElementById("lightbox").style.display = "none";
-                    image.classList.remove("lightbox--image");                    
-                });
-                document.getElementById("previous").addEventListener("click", () => {
-                    console.log(123)
-                })
-                document.getElementById("next").addEventListener("click", () => {
-                    console.log(456)
-                })
+                this.all.push(" ");
+                let id = e.target.getAttribute("photoid");
+                this.currentSlideIndex = this.all.findIndex(media => media.id == id);
+                this.showLightbox();
+                this.listenForClose();
+                this.listenForNext();
+                this.listenForPrevious();
             });
+        })
+    }
+
+    showLightbox() {
+        document.getElementById("lightbox--wrapper").style.display = "block";
+        console.log(document.getElementById("lightbox--wrapper"));
+        document.getElementById("lightbox--body").innerHTML = this.all[this.currentSlideIndex].renderLightbox();
+    }
+
+    listenForClose() {
+        document.getElementById("close").addEventListener("click", (e) => {
+            document.getElementById("lightbox--wrapper").style.display = "none";
+
+        });
+    }
+
+    listenForNext() {
+        document.getElementById("next").addEventListener("click", () => {
+            this.currentSlideIndex++;
+            if (this.currentSlideIndex == this.all.length - 1) {
+                this.currentSlideIndex = 0;
+            }
+            let id = this.all[this.currentSlideIndex].id;
+            this.showLightbox(id)
+
+        })
+    }
+
+    listenForPrevious() {
+        document.getElementById("previous").addEventListener("click", () => {
+            this.currentSlideIndex--;
+            if (this.currentSlideIndex == -1) {
+                this.currentSlideIndex = this.all.length - 2;
+            }
+            let id = this.all[this.currentSlideIndex].id;
+            this.showLightbox(id)
         })
     }
     
     listenForLike() {
-        this.all.forEach(media => {
-            let like = new Media(media);
-            document.querySelectorAll(".like").forEach(heart => {
-                heart.addEventListener("click", () => {
-                    like.toggle();
-                })
+        document.querySelectorAll(".like").forEach(heart => {
+            heart.addEventListener("click", () => {
+                let id = heart.getAttribute("data-id");
+                let media = this.all.find(media => media.id == id);
+                media.toggle();
+
+                this.displayTotal();
             })
-            this.totalLike.push(media.likes);
-            document.getElementById("total--like").innerHTML = this.addLikes(this.totalLike);
         })
+        this.resetLikes()
     }
 
-    addLikes(a) {
+    resetLikes() {
         let total = 0;
-        for(let i in a) { 
-            total += a[i];
-        }
-        return total;
+        this.all.forEach(media => {
+            total += media.likes;
+        })
+        document.getElementById("total--like").innerHTML = total;
+    }
+
+    displayTotal() {
+        this.resetLikes();
     }
 
     listenForFilter() {
         document.querySelectorAll(".filter").forEach(filter => {
             filter.addEventListener("click", () => {
                 let filtre = filter.getAttribute("data-filter");
+                let list = [];
                 if (filtre == "date") {
-                    let list = this.all.sort(function(a, b) {
-                        let dateA = a.date;
-                        let dateB = b.date;
-                        if (dateA < dateB) {
-                             return -1;
-                        } 
-                        if (dateA > dateB) {
-                            return 1
-                        }
-                     })
-                     this.display(list);
+                   this.filterForDate();
                 } else if (filtre == "titre") {
-                    let list = this.all.sort(function(a, b) {
-                       let titleA = a.title;
-                       let titleB = b.title;
-                       if (titleA < titleB) {
-                            return -1;
-                       } 
-                       if (titleA > titleB) {
-                           return 1
-                       }
-                    })
-                    this.display(list);
+                    this.filterForTitre();
                 } else if (filtre == "populaire") {
-                    let list = this.all.sort((a, b) => {
-                        return b.likes - a.likes;
-                    })
-                    this.display(list);
+                    this.filterForPopularity();
                 }
+                this.display(list);
             })
+        })
+    }
+
+    filterForDate() {
+        return this.all.sort(function(a, b) {
+            let dateA = a.date;
+            let dateB = b.date;
+            if (dateA < dateB) {
+                 return -1;
+            } 
+            if (dateA > dateB) {
+                return 1
+            }
+        })
+    }
+
+    filterForTitre() {
+        return this.all.sort(function(a, b) {
+            let titleA = a.title;
+            let titleB = b.title;
+            if (titleA < titleB) {
+                 return -1;
+            } 
+            if (titleA > titleB) {
+                return 1
+            }
+        })
+    }
+
+    filterForPopularity() {
+        return this.all.sort((a, b) => {
+            return b.likes - a.likes;
         })
     }
 }
