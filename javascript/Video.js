@@ -8,7 +8,7 @@ class Video extends Media {
     render() {
         return `
         <div class="image--wrapper" date="${this.date}" price="${this.price}" photoId="${this.id}" title="${this.title}">
-            <video width="350" height="250" controls>
+            <video width="350" height="250" controls class="video">
                 <source src="../images/${this.photographerId}/${this.video}" type="video/mp4">
             </video>
             <div class="description--wrapper">

@@ -12,9 +12,9 @@ fetch('../data.json')
   let medias = data.medias.filter(media => media.photographerId == getId());
   portfolio.hydrate(medias);
   portfolio.display();
-  portfolio.listenForLike();
   portfolio.lightboxListener();
   portfolio.listenForFilter();
+  portfolio.listenForLike();
 })
 
 function getId() {

@@ -8,5 +8,6 @@ fetch('../data.json')
   list.displayPhotographers(list.all);
   list.displayTags();
   list.listenForFiltering();
+  list.listenForButton();
 })
 

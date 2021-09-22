@@ -9,7 +9,7 @@ header {
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-bottom: 50px;
+    margin-bottom: 25px;
 }
 
 .logo {
@@ -29,11 +29,15 @@ a {
     padding: 4px;
     font-size: 20px;
     font-weight: 500;
-    margin: 15px;
+    margin-top: 15px;
     position: fixed;
-    right: 45%;
+    left: 50%;
+    transform: translate(-50%, 0);
     top: 0px;
+    color: black;
     display: none;
+    z-index: 3;
+    min-width: 175px;
 }
 
 .nav--wrapper {
@@ -77,7 +81,7 @@ a {
 }
 
 .nav--wrapper:last-child {
-    margin-right: 400px;
+    margin-right: 300px;
 }
 
 #main--wrapper {
@@ -89,11 +93,11 @@ a {
 
 .title--wrapper h1{
     color: #911C1C;
-    font-size: 46px;
+    font-size: 36px;
     font-weight: 400;
     position: absolute;
     right: 25px;
-    top: 20px;
+    top: 25px;
     margin: 0px;
     margin-left: 10px;
 }
@@ -102,8 +106,8 @@ a {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 50px 0px;
-    height: 450px;
+    margin: 25px 0px;
+    height: fit-content;
     width: 400px;
 }
 
@@ -184,37 +188,128 @@ a {
     }
 }
 
-@media screen and (max-width: 1030px) {
-    .nav--wrapper:last-child {
-        margin-right: 300px;
-    }
-
-    .title--wrapper h1{
-        font-size: 36px;
-        top: 25px;
-    }
-}
-
 @media screen and (max-width: 930px) {
     .logo {
         position: absolute;
         top: 25px;
         left: 25px;
-        position: absolute;
-        top: 25px;
-        left: 25px;
+    }
+
+    .nav--wrapper:last-child {
+        margin-right: 0px;
     }
 
     .nav--wrapper {
-        position: relative;
-        top: 75px;
-    }
-
-    nav {
-        display: flex;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, 0);
+        top: 85px;
+        flex-wrap: unset;
+        margin: 15px 0px;
     }
 
     #main--wrapper {
+        margin-top: 110px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    #main--wrapper {
+        margin-top: 130px;
+    }
+
+    .nav--wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        min-width: 600px;
+    }
+}
+
+@media screen and (max-width: 610px) {
+    .title--wrapper h1 {
+        font-size: 30px;
+    }
+
+    .nav--wrapper {
+        min-width: 550px;
+    }
+}
+
+@media screen and (max-width: 560px) {
+    .title--wrapper h1{
+        font-size: 25px;
+        margin-top: 10px;
+    }
+
+    .nav--wrapper {
         margin-top: 25px;
+        min-width: 500px;
+    }
+
+    #main--wrapper {
+        margin-top: 150px;
+    }
+
+    .logo img{
+        height: 40px;
+        width: 160px;
+    }
+}
+
+@media screen and (max-width: 470px) {
+    .title--wrapper h1{
+        margin-top: 10px;
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 440px) {
+    .nav--wrapper {
+        min-width: 300px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #main--wrapper {
+        margin-top: 230px;
+    }
+
+    .photographe--wrapper {
+        margin: 25px 15px;
+        height: fit-content;
+    }
+
+    .photographe--nom {
+        text-align: center;
+    }
+
+    .photographe--texte {
+        text-align: center;
+    }
+
+    .title--wrapper h1{
+        margin-top: 15px;
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 390px) {
+    .title--wrapper h1{
+        margin-top: 20px;
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 325px) {
+    #selection--wrapper {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .photographe--selection {
+        margin-top: 5px;
     }
 }

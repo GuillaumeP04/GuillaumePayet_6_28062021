@@ -3,6 +3,7 @@ class Portfolio {
     constructor() {
         this.all = [];
         this.totalLike = [];
+
     }
     
     hydrate(medias) {
@@ -70,31 +71,6 @@ class Portfolio {
             this.showLightbox(id)
         })
     }
-    
-    listenForLike() {
-        document.querySelectorAll(".like").forEach(heart => {
-            heart.addEventListener("click", () => {
-                let id = heart.getAttribute("data-id");
-                let media = this.all.find(media => media.id == id);
-                media.toggle();
-
-                this.displayTotal();
-            })
-        })
-        this.resetLikes()
-    }
-
-    resetLikes() {
-        let total = 0;
-        this.all.forEach(media => {
-            total += media.likes;
-        })
-        document.getElementById("total--like").innerHTML = total;
-    }
-
-    displayTotal() {
-        this.resetLikes();
-    }
 
     listenForFilter() {
         document.querySelectorAll(".filter").forEach(filter => {
@@ -103,6 +79,7 @@ class Portfolio {
                 let list = [];
                 if (filtre == "date") {
                    this.filterForDate();
+                   this.swapButton("date");
                 } else if (filtre == "titre") {
                     this.filterForTitre();
                 } else if (filtre == "populaire") {
@@ -111,6 +88,10 @@ class Portfolio {
                 this.display(list);
             })
         })
+    }
+
+    swapButton() {
+        
     }
 
     filterForDate() {
@@ -143,5 +124,30 @@ class Portfolio {
         return this.all.sort((a, b) => {
             return b.likes - a.likes;
         })
+    }
+
+    listenForLike() {
+        document.querySelectorAll(".like").forEach(heart => {
+            heart.addEventListener("click", () => {
+                let id = heart.getAttribute("data-id");
+                let media = this.all.find(media => media.id == id);
+                media.toggle();
+
+                this.displayTotal();
+            })
+        })
+        this.resetLikes()
+    }
+
+    resetLikes() {
+        let total = 0;
+        this.all.forEach(media => {
+            total += media.likes;
+        })
+        document.getElementById("total--like").innerHTML = total;
+    }
+
+    displayTotal() {
+        this.resetLikes();
     }
 }

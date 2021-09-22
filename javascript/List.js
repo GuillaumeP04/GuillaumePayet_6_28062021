@@ -77,4 +77,15 @@ class List {
         })
         this.displayPhotographers(list)
     }
+
+    listenForButton() {
+        window.onscroll = () => {
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                document.getElementById("nav--content").style.display = "block";
+                
+            } else if (document.body.scrollTop < 100 || document.documentElement.scrollTop < 100) {
+                document.getElementById("nav--content").style.display = "none";
+            }
+        }
+    }
 }
