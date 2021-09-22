@@ -11,10 +11,7 @@ fetch('../data.json')
   let portfolio = new Portfolio(photographerRaw);
   let medias = data.medias.filter(media => media.photographerId == getId());
   portfolio.hydrate(medias);
-  portfolio.display();
-  portfolio.lightboxListener();
-  portfolio.listenForFilter();
-  portfolio.listenForLike();
+  portfolio.build();
 })
 
 function getId() {

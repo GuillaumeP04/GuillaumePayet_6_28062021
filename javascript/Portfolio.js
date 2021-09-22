@@ -3,7 +3,7 @@ class Portfolio {
     constructor() {
         this.all = [];
         this.totalLike = [];
-
+        this.currentSlideIndex;
     }
     
     hydrate(medias) {
@@ -12,6 +12,9 @@ class Portfolio {
             let medias = factory.build(media);
             this.all.push(medias);
         })
+        this.listenForClose();
+        this.listenForNext();
+        this.listenForPrevious();
     }
     
     display() {
@@ -25,20 +28,18 @@ class Portfolio {
     lightboxListener() {
         document.querySelectorAll("#image--link").forEach(images => {
             images.addEventListener("click", (e) => {
-                this.all.push(" ");
                 let id = e.target.getAttribute("photoid");
                 this.currentSlideIndex = this.all.findIndex(media => media.id == id);
                 this.showLightbox();
-                this.listenForClose();
-                this.listenForNext();
-                this.listenForPrevious();
             });
         })
     }
 
     showLightbox() {
+        console.log(123);
+        console.log(this.all);
+        console.log(this.all[this.currentSlideIndex]);
         document.getElementById("lightbox--wrapper").style.display = "block";
-        console.log(document.getElementById("lightbox--wrapper"));
         document.getElementById("lightbox--body").innerHTML = this.all[this.currentSlideIndex].renderLightbox();
     }
 
@@ -52,7 +53,7 @@ class Portfolio {
     listenForNext() {
         document.getElementById("next").addEventListener("click", () => {
             this.currentSlideIndex++;
-            if (this.currentSlideIndex == this.all.length - 1) {
+            if (this.currentSlideIndex == this.all.length) {
                 this.currentSlideIndex = 0;
             }
             let id = this.all[this.currentSlideIndex].id;
@@ -65,7 +66,7 @@ class Portfolio {
         document.getElementById("previous").addEventListener("click", () => {
             this.currentSlideIndex--;
             if (this.currentSlideIndex == -1) {
-                this.currentSlideIndex = this.all.length - 2;
+                this.currentSlideIndex = this.all.length - 1;
             }
             let id = this.all[this.currentSlideIndex].id;
             this.showLightbox(id)
@@ -76,26 +77,28 @@ class Portfolio {
         document.querySelectorAll(".filter").forEach(filter => {
             filter.addEventListener("click", () => {
                 let filtre = filter.getAttribute("data-filter");
-                let list = [];
                 if (filtre == "date") {
                    this.filterForDate();
-                   this.swapButton("date");
                 } else if (filtre == "titre") {
                     this.filterForTitre();
                 } else if (filtre == "populaire") {
                     this.filterForPopularity();
                 }
-                this.display(list);
+                this.build()
             })
         })
     }
 
-    swapButton() {
-        
+    build() {
+        this.display();
+        this.lightboxListener();
+        this.listenForFilter();
+        this.listenForLike();
+        this.listenForMainFilter();
     }
 
     filterForDate() {
-        return this.all.sort(function(a, b) {
+        this.all = this.all.sort(function(a, b) {
             let dateA = a.date;
             let dateB = b.date;
             if (dateA < dateB) {
@@ -108,7 +111,7 @@ class Portfolio {
     }
 
     filterForTitre() {
-        return this.all.sort(function(a, b) {
+        this.all = this.all.sort(function(a, b) {
             let titleA = a.title;
             let titleB = b.title;
             if (titleA < titleB) {
@@ -121,7 +124,7 @@ class Portfolio {
     }
 
     filterForPopularity() {
-        return this.all.sort((a, b) => {
+        this.all = this.all.sort((a, b) => {
             return b.likes - a.likes;
         })
     }
@@ -149,5 +152,14 @@ class Portfolio {
 
     displayTotal() {
         this.resetLikes();
+    }
+
+    listenForMainFilter() {
+        document.querySelectorAll(".photographe--selection").forEach(item => {
+            item.addEventListener("click", (e) => {
+                // location.href = "/index.html";
+                let button = e.target.getAttribute("id");
+            })
+        })
     }
 }

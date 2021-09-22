@@ -42,6 +42,14 @@ main {
     display: none;
 }
 
+.active {
+    display: block;
+}
+
+.inactive {
+    display: none;
+}
+
 .dropbtn {
     background-color: #901C1C;
     color: white;
