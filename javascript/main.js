@@ -9,5 +9,6 @@ fetch('../data.json')
   list.displayTags();
   list.listenForFiltering();
   list.listenForButton();
+  list.tagsFilter();
 })
 

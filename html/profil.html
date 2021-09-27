@@ -5,35 +5,52 @@
         <title>FishEye</title>
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         <link rel="stylesheet" href="../css/main.css" />
-        <link rel="stylesheet" href="../css/profil.css">
         <link href="../css/fontawesome.css" rel="stylesheet">
-
+        <link rel="stylesheet" href="../css/profil.css">
     </head>
     <body>
         <header>
-            <div>
-                <a class="logo" href="../index.html"><img src="../images/logo.png" alt="FishEye Home page"></a> 
+            <div class="profil--logo">
+                <a href="../index.html"><img src="../images/logo.png" alt="FishEye Home page"></a> 
             </div>
         </header>
         <main>
             <div id="contact--wrapper"></div>
             <div id="dropdown--wrapper">
-                <p id="dropdown--text">Trier par</p>
-                <div class="dropdown">
-                    <a class="dropbtn filter" data-filter="populaire">Popularité</a>
-                    <i class="fas fa-chevron-down" id="arrow--down"></i>
-                    <i class="fas fa-chevron-up" id="arrow--up"></i>
+                <p id="dropdown--text" aria-label="Trier par">Trier par</p>
+                <div class="dropdown" id="populaire">
+                    <a class="dropbtn filter" role="button" aria-haspopup="listbox" aria-expanded="undefined" data-filter="populaire">Popularité</a>
+                    <i class="fas fa-chevron-down arrow--down"></i>
+                    <i class="fas fa-chevron-up arrow--up"></i>
                     <div id="dropdown-content">
-                        <a class="filter" data-filter="date">Date</a>
-                        <a class="filter" data-filter="titre">Titre</a>
+                        <a class="filter" role="listbox" aria-activedescendant="" aria-selected="undefined" aria-labelledby="Trier par" data-filter="date">Date</a>
+                        <a class="filter" role="listbox" aria-activedescendant="" aria-selected="undefined" aria-labelledby="Trier par" data-filter="titre">Titre</a>
+                    </div>
+                </div>
+                <div class="dropdown" id="date">
+                    <a class="dropbtn filter" role="button" aria-haspopup="listbox" aria-expanded="undefined" data-filter="date">Date</a>
+                    <i class="fas fa-chevron-down arrow--down"></i>
+                    <i class="fas fa-chevron-up arrow--up"></i>
+                    <div id="dropdown-content">
+                        <a class="filter" role="listbox" aria-activedescendant="" aria-selected="undefined" aria-labelledby="Trier par" data-filter="populaire">Popularité</a>
+                        <a class="filter" role="listbox" aria-activedescendant="" aria-selected="undefined" aria-labelledby="Trier par" data-filter="titre">Titre</a>
+                    </div>
+                </div>
+                <div class="dropdown" id="titre">
+                    <a class="dropbtn filter" role="button" aria-haspopup="listbox" aria-expanded="undefined" data-filter="titre">Titre</a>
+                    <i class="fas fa-chevron-down arrow--down"></i>
+                    <i class="fas fa-chevron-up arrow--up"></i>
+                    <div id="dropdown-content">
+                        <a class="filter" role="listbox" aria-activedescendant="" aria-selected="undefined" aria-labelledby="Trier par" data-filter="date">Date</a>
+                        <a class="filter" role="listbox" aria-activedescendant="" aria-selected="undefined" aria-labelledby="Trier par" data-filter="populaire">Popularité</a>
                     </div>
                 </div>
             </div>
             <div id="div--wrapper"></div>
             <div id="like--wrapper"></div>
-            <div class="background">
+            <div class="background" aria-hidden="true" aria-labelledby="Contactez-moi">
                 <div>
-                    <i id="fermer--form" class="fas fa-times fermer"></i>
+                    <i id="fermer--form" class="fas fa-times fermer" aria-label="Fermer formulaire de contact"></i>
                     <form 
                     class="contact--form"
                     name="form" 
@@ -43,44 +60,49 @@
                     >  
                         <div id="modal--contact">
                         </div>
-                        <label for="prenom">Prénom</label>
+                        <label aria-label="Prénom" for="prenom">Prénom</label>
                         <input 
                         id="prenom" 
                         type="text" 
                         name="prenom"
+                        aria-labelledby="Prénom"
                         >
-                        <label for="nom">Nom</label>
+                        <label aria-label="Nom" for="nom">Nom</label>
                         <input 
                         id="nom" 
                         type="text" 
                         name="nom"
+                        aria-labelledby="Nom"
                         >
-                        <label for="email">Email</label>
+                        <label aria-label="Email" for="email">Email</label>
                         <input 
                         id="email" 
                         type="email"  
                         name="email"
+                        aria-labelledby="Email"
                         >
-                        <label for="message">Votre message</label>
+                        <label aria-label="Votre message" for="message">Votre message</label>
                         <input 
                         id="message" 
                         type="text" 
                         name="message"
+                        aria-labelledby="Votre message"
                         >
                         <input 
                         type="submit"
                         id="btn--envoyer"
                         value="Envoyer"
                         class="button"
+                        aria-label="Envoyer"
                         >
                     </form>
                 </div>
             </div>
             <span id="blur"></span>
-            <div id="lightbox--wrapper">
-                <i class="fas fa-times" id="close"></i>
-                <i class="fas fa-chevron-left" id="previous"></i>
-                <i class="fas fa-chevron-right" id="next"></i>
+            <div id="lightbox--wrapper" aria-hidden="true">
+                <i class="fas fa-times" id="close" aria-label="Fermer dialog"></i>
+                <i class="fas fa-chevron-left" id="previous" aria-label="Image précedente"></i>
+                <i class="fas fa-chevron-right" id="next" aria-label="Prochaine image"></i>
                 <div id="lightbox--body"></div>
             </div>
         </main>

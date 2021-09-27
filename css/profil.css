@@ -1,9 +1,16 @@
 body {
     padding-bottom: 55px;
+    overflow-y: auto;
 }
 
 main {
-    margin-top: 25px;
+    margin-top: 75px;
+}
+
+header {
+    position: absolute;
+    top: 25px;
+    left: 25px;
 }
 
 #contact--wrapper {
@@ -23,31 +30,74 @@ main {
     padding: 15px 10px;
 }
 
+.profil--picture {
+    border: 0px solid black;
+    border-radius: 100%;
+    width: 200px;
+    height: 200px;
+    box-shadow:  lightgrey 0px 0px 10px 2px;
+    object-fit: cover;
+}
+
+.profil--texte {
+    margin: 5px 0px;
+    font-weight: 500;
+    color: black;
+    margin-left: 5px;
+    margin-bottom: 10px;
+}
+
+.profil--ville {
+    font-size: 20px;
+    margin: 5px;
+    color: #901C1C;
+}
+
+.profil--nom {
+    font-size: 45px;
+    margin: 20px 0px;
+    color: #D3573C;
+    font-weight: lighter;
+    text-decoration: none;
+}
+
+.profil--selection {
+    border: 0.5px solid #C4C4C4;
+    box-sizing: border-box;
+    border-radius: 25px;
+    padding: 4px;
+    margin-right: 5px;
+    color: #901C1C;
+    cursor: pointer;
+}
+
+.profil--selection:hover, .profil--selection:focus {
+    background-color: #901C1C;
+    color: white;
+}
+
+#fermer--form {
+    z-index: 3;
+}
+
 .contact--form__lien:hover, .contact--form__lien:focus {
     background-color: #DB8876;
     color: black;
 }
 
-#arrow--down {
+.arrow--up {
+    display: none;
     position: absolute;
     color: white;
     right: 15px;
+    top: 15px;
 }
 
-#arrow--up {
+.arrow--down {
     position: absolute;
     color: white;
     right: 15px;
-    top: 0px;
-    display: none;
-}
-
-.active {
-    display: block;
-}
-
-.inactive {
-    display: none;
+    top: 15px;
 }
 
 .dropbtn {
@@ -56,16 +106,20 @@ main {
     padding: 15px;
     padding-right: 45px;
     font-size: 16px;
-    max-width: 140px;
     border: 1px solid #901C1C;
     border-radius: 5px;
     cursor: pointer;
-    text-transform: capitalize;
+    min-width: 140px;
 }
 
 .dropdown {
     position: relative;
     display: inline-block;
+    width: 121px;
+    background-color: #901C1C;
+    padding: 16px 16px 16px 0px;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 #dropdown--text {
@@ -84,8 +138,7 @@ main {
     margin-top: 12px;
     background-color: #901C1C;
     border-radius: 0px 0px 5px 5px;
-    width: max-content;
-    min-width: 137px;
+    min-width: 137px; 
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
 }
@@ -109,12 +162,24 @@ main {
     background-color: #901C1C;
 }
 
-.dropdown:hover #arrow--down {
+.dropdown:hover .arrow--down {
     display: none;
 }
 
-.dropdown:hover #arrow--up {
+.dropdown:hover .arrow--up {
     display: block;
+}
+
+#populaire {
+    display: block;
+}
+
+#titre {
+    display: none;
+}
+
+#date {
+    display: none;
 }
 
 .background {
@@ -181,7 +246,7 @@ main {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .image--wrapper {
@@ -329,7 +394,7 @@ main {
     left: 10%;
     right: 10%;
     z-index: 3;
-    /* box-shadow: 6px -2px 0px 1px lightgrey;; */
+    box-shadow: 6px -2px 0px 1px lightgrey;
 }
 
 #lightbox--video {
@@ -340,12 +405,21 @@ main {
     z-index: 3;
 }
 
-@media screen and (max-width: 780px) {
+@media screen and (max-width: 850px) {
+    #div--wrapper {
+        margin-bottom: 20px;
+    }
+
     .contact--form__lien {
         position: fixed;
         bottom: 15px;
         left: 50%;
         transform: translate(-50%, 0);
+        z-index: 2;
+    }
+
+    .background {
+        top: 0px;
     }
 
     #like--wrapper {
@@ -375,6 +449,90 @@ main {
     }
 }
 
-@media screen and (max-width: 600px) {
-   
+@media screen and (max-width: 640px) {
+   .background {
+       width: 100%;
+   }
+
+   .contact--form {
+        width: 95%;
+        position: relative;
+        left: 50%;
+        transform: translate(-50%, 0);
+   }
+
+   #fermer--form {
+        position: absolute;
+        right: 45px;
+   }
+
+   #btn--envoyer {
+        position: relative;
+        left: 50%;
+        transform: translate(-50%, 0);
+   }
+
+   #modal--contact {
+       margin-right: 45px;
+   }
+
+    #lightbox--image {
+        height: 50%;
+        top: 25%;
+    }
+
+    #lightbox--video {
+        height: 75%;
+        width: 75%;
+    }
+
+    #close, #previous, #next {
+        font-size: 35px;
+    }
+}
+
+@media screen and (max-width: 515px) {
+    #contact--wrapper {
+        padding: 10px;
+    }
+
+    .profil--nom {
+        font-size: 30px;
+        margin-bottom: 5px;
+    }
+
+    .profil--profil {
+        width: 100px;
+        height: 100px;
+    }
+
+    .profil--ville {
+        font-size: 15px;
+    }
+
+    .profil--texte {
+        font-size: 12px;
+    }
+
+    .profil--picture {
+        height: 100px;
+        width: 100px;
+        position: relative;
+        top: 25px;
+    }
+    
+    .profil--selection {
+        font-size: 12px;
+    }
+
+    .profil--logo img{
+        height: 40px;
+        width: 150px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    #close, #previous, #next {
+        font-size: 25px;
+    }
 }

@@ -8,10 +8,10 @@ class Image extends Media {
     render() {
         return `
         <div class="image--wrapper" date="${this.date}" price="${this.price}" title="${this.title}">
-            <img id="image--link" class="photos" src="../images/${this.photographerId}/${this.image}" alt="${this.title}" photoId="${this.id}">
+            <img id="image--link" class="photos" src="../images/${this.photographerId}/${this.image}" alt="${this.title}" photoId="${this.id}" aria-label="${this.title} vue rapprochée">
             <div class="description--wrapper">
                 <p class="description" title ="${this.title}">${this.title}</p>
-                <span>
+                <span aria-label="Likes">
                     <span class="photographer--like" data-id="${this.id}">${this.likes}</span>
                     <i class="fas fa-heart like" data-id="${this.id}"></i>
                 </span>
@@ -22,7 +22,7 @@ class Image extends Media {
     renderLightbox() {
         return `
         <div id="lightbox">
-            <img id="lightbox--image" class="photos" src="../images/${this.photographerId}/${this.image}" alt="${this.title}" photoId="${this.id}">
+            <img id="lightbox--image" class="photos" src="../images/${this.photographerId}/${this.image}" alt="${this.title}" photoId="${this.id}" aria-label="${this.title}"">
             <p id="lightbox--description">${this.title}</p>
         </div>
         `

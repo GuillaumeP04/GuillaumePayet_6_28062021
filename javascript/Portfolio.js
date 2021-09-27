@@ -36,17 +36,17 @@ class Portfolio {
     }
 
     showLightbox() {
-        console.log(123);
-        console.log(this.all);
-        console.log(this.all[this.currentSlideIndex]);
         document.getElementById("lightbox--wrapper").style.display = "block";
+        document.getElementById("lightbox--wrapper").setAttribute('aria-hidden', 'false');
+        document.querySelector("body").setAttribute('aria-hidden', 'true')
         document.getElementById("lightbox--body").innerHTML = this.all[this.currentSlideIndex].renderLightbox();
     }
 
     listenForClose() {
-        document.getElementById("close").addEventListener("click", (e) => {
+        document.getElementById("close").addEventListener("click", () => {
             document.getElementById("lightbox--wrapper").style.display = "none";
-
+            document.getElementById("lightbox--wrapper").setAttribute('aria-hidden', 'true')
+            document.querySelector("body").setAttribute('aria-hidden', 'false')
         });
     }
 
@@ -78,11 +78,14 @@ class Portfolio {
             filter.addEventListener("click", () => {
                 let filtre = filter.getAttribute("data-filter");
                 if (filtre == "date") {
-                   this.filterForDate();
+                    this.filterForDate();
+                    this.changeForDate();
                 } else if (filtre == "titre") {
                     this.filterForTitre();
+                    this.changeForTitre();
                 } else if (filtre == "populaire") {
                     this.filterForPopularity();
+                    this.changeForPopulaire();
                 }
                 this.build()
             })
@@ -95,6 +98,24 @@ class Portfolio {
         this.listenForFilter();
         this.listenForLike();
         this.listenForMainFilter();
+    }
+
+    changeForDate() {
+        document.getElementById("populaire").style.display = "none";
+        document.getElementById("titre").style.display = "none";
+        document.getElementById("date").style.display = "block";
+    }
+
+    changeForTitre() {
+        document.getElementById("populaire").style.display = "none";
+        document.getElementById("titre").style.display = "block";
+        document.getElementById("date").style.display = "none";
+    }
+
+    changeForPopulaire() {
+        document.getElementById("populaire").style.display = "block";
+        document.getElementById("titre").style.display = "none";
+        document.getElementById("date").style.display = "none";
     }
 
     filterForDate() {
@@ -155,10 +176,11 @@ class Portfolio {
     }
 
     listenForMainFilter() {
-        document.querySelectorAll(".photographe--selection").forEach(item => {
+        document.querySelectorAll(".profil--selection").forEach(item => {
             item.addEventListener("click", (e) => {
-                // location.href = "/index.html";
                 let button = e.target.getAttribute("id");
+                console.log(button)
+                location.href = "/index.html";
             })
         })
     }

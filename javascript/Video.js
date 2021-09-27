@@ -13,7 +13,7 @@ class Video extends Media {
             </video>
             <div class="description--wrapper">
                 <p class="description">${this.title}</p>
-                <span>
+                <span aria-label="Likes">
                     <span class="photographer--like" data-id="${this.id}">${this.likes}</span>
                     <i class="fas fa-heart like" data-id="${this.id}"></i>
                 </span>

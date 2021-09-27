@@ -26,9 +26,23 @@ class List {
     displayTags() {
         let htmlNavBar = " ";
         this.tags.forEach(tags => {
-            htmlNavBar += `<span class="nav--bar" id="${tags}">#${tags}</span>`
+            htmlNavBar += `<span class="nav--bar" id="${tags}" aria-label="${tags} Tag">#${tags}</span>`
         })
         document.getElementById("tags").innerHTML = htmlNavBar;
+    }
+
+    tagsFilter() {
+        document.querySelectorAll(".photographe--selection").forEach(button => {
+            button.addEventListener("click", () => {
+                let tag = button.getAttribute("id");
+                if (this.tagSelected.has(tag)) {
+                    this.removeFilter(button);
+                } else { 
+                    this.addFilter(button);
+                }
+                this.filter();
+            })
+        })
     }
     
     listenForFiltering() {
@@ -56,7 +70,6 @@ class List {
         button.classList.toggle("nav--bar__active")
         this.tagSelected.delete(tag)
     }
-
     
     filter() {
         let list = this.all;

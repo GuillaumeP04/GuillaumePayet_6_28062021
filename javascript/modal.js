@@ -7,6 +7,8 @@ let email = document.getElementById("email");
 let message = document.getElementById("message");
 let btnEnvoyer = document.getElementById("btn--envoyer");
 let form = document.querySelector('form.contact--form');
+let blur = document.querySelector("#blur");
+let body = document.querySelector("body");
 
 ouvrirForm();
 fermerForm();
@@ -17,12 +19,18 @@ fermerFormBtn.addEventListener('click', fermerForm);
 // Functions
 function ouvrirForm() {
     formBg.style.display = "block";
-    document.getElementById("blur").style.display = "block";
+    blur.style.display = "block";
+    body.style.overflow = 'hidden';
+    body.setAttribute('aria-hidden', 'true')
+    formBg.setAttribute('aria-hidden', 'false')
 }   
 
 function fermerForm() {
     formBg.style.display = "none";
-    document.getElementById("blur").style.display = "none";
+    blur.style.display = "none";
+    body.style.overflow = 'visible';
+    body.setAttribute('aria-hidden', 'false')
+    formBg.setAttribute('aria-hidden', 'true')
 }  
 
 function submitForm(e) {
@@ -34,4 +42,3 @@ function submitForm(e) {
     console.log("Message: ", x['message'].value);
     fermerForm();
 }
-
