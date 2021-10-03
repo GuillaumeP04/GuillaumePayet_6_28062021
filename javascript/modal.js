@@ -28,7 +28,7 @@ function ouvrirForm() {
 function fermerForm() {
     formBg.style.display = "none";
     blur.style.display = "none";
-    body.style.overflow = 'visible';
+    body.style.overflow = 'scroll';
     body.setAttribute('aria-hidden', 'false')
     formBg.setAttribute('aria-hidden', 'true')
 }  

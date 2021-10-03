@@ -31,18 +31,35 @@ class List {
         document.getElementById("tags").innerHTML = htmlNavBar;
     }
 
+    profilTagsFilter() {
+        const urlParams = new URLSearchParams(window.location.search);
+        let tag = urlParams.get('tag');
+        let buttonNav = document.querySelector(`.nav--bar[id="${tag}"]`)
+        if (tag == null) {
+        } else {
+            this.addFilter(buttonNav);
+        }
+        this.filter();
+    }
+
     tagsFilter() {
         document.querySelectorAll(".photographe--selection").forEach(button => {
             button.addEventListener("click", () => {
                 let tag = button.getAttribute("id");
+                let buttonNav = document.querySelector(`.nav--bar[id="${tag}"]`)
                 if (this.tagSelected.has(tag)) {
-                    this.removeFilter(button);
+                    this.removeFilter(buttonNav);
                 } else { 
-                    this.addFilter(button);
+                    this.addFilter(buttonNav);
                 }
                 this.filter();
             })
         })
+    }
+
+    build() {
+       this.listenForButton();
+       this.tagsFilter();
     }
     
     listenForFiltering() {
@@ -89,6 +106,7 @@ class List {
             return keep;
         })
         this.displayPhotographers(list)
+        this.build();
     }
 
     listenForButton() {
@@ -101,4 +119,6 @@ class List {
             }
         }
     }
+
+    
 }

@@ -33,7 +33,7 @@ class Photographer {
     displayProfil() {
         let tags = " ";
         this.tags.forEach(tag => {
-            tags += `<span class="profil--selection" id="${tag}" aria-label="${tag} Tag">#${tag}</span>`
+            tags += `<a href="/index.html?tag=${tag}" class="profil--selection" id="${tag}" aria-label="${tag} Tag">#${tag}</a>`
         });
 
         document.getElementById("contact--wrapper").innerHTML = `

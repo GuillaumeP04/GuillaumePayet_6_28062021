@@ -8,7 +8,12 @@ fetch('../data.json')
   list.displayPhotographers(list.all);
   list.displayTags();
   list.listenForFiltering();
-  list.listenForButton();
-  list.tagsFilter();
+  list.build();
+  list.profilTagsFilter();
 })
+
+// function getTag() {
+//   const urlParams = new URLSearchParams(window.location.search);
+//   return urlParams.get('tag');
+// }
 

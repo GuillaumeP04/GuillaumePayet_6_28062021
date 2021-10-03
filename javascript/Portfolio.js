@@ -97,7 +97,6 @@ class Portfolio {
         this.lightboxListener();
         this.listenForFilter();
         this.listenForLike();
-        this.listenForMainFilter();
     }
 
     changeForDate() {
@@ -173,15 +172,5 @@ class Portfolio {
 
     displayTotal() {
         this.resetLikes();
-    }
-
-    listenForMainFilter() {
-        document.querySelectorAll(".profil--selection").forEach(item => {
-            item.addEventListener("click", (e) => {
-                let button = e.target.getAttribute("id");
-                console.log(button)
-                location.href = "/index.html";
-            })
-        })
     }
 }
