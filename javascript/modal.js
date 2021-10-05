@@ -16,15 +16,7 @@ fermerForm();
 form.addEventListener('submit', submitForm);
 fermerFormBtn.addEventListener('click', fermerForm);
 
-// Functions
-function ouvrirForm() {
-    formBg.style.display = "block";
-    blur.style.display = "block";
-    body.style.overflow = 'hidden';
-    body.setAttribute('aria-hidden', 'true')
-    formBg.setAttribute('aria-hidden', 'false')
-}   
-
+// Functions   
 function fermerForm() {
     formBg.style.display = "none";
     blur.style.display = "none";
@@ -32,6 +24,14 @@ function fermerForm() {
     body.setAttribute('aria-hidden', 'false')
     formBg.setAttribute('aria-hidden', 'true')
 }  
+
+function ouvrirForm() {
+    formBg.style.display = "block";
+    blur.style.display = "block";
+    body.style.overflow = 'hidden';
+    body.setAttribute('aria-hidden', 'true')
+    formBg.setAttribute('aria-hidden', 'false')
+}
 
 function submitForm(e) {
     e.preventDefault();

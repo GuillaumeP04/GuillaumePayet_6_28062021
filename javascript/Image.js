@@ -13,7 +13,7 @@ class Image extends Media {
                 <p class="description" title ="${this.title}">${this.title}</p>
                 <span aria-label="Likes">
                     <span class="photographer--like" data-id="${this.id}">${this.likes}</span>
-                    <i class="fas fa-heart like" data-id="${this.id}"></i>
+                    <em class="fas fa-heart like" data-id="${this.id}"></em>
                 </span>
             </div>
         </div>`

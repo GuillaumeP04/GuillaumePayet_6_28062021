@@ -7,13 +7,8 @@ fetch('../data.json')
   list.hydrate(data.photographers);
   list.displayPhotographers(list.all);
   list.displayTags();
-  list.listenForFiltering();
   list.build();
-  list.profilTagsFilter();
+  list.listenForFiltering();
+  list.filterProfilTags();
 })
-
-// function getTag() {
-//   const urlParams = new URLSearchParams(window.location.search);
-//   return urlParams.get('tag');
-// }
 

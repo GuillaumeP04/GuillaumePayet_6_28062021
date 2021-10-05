@@ -19,30 +19,30 @@
             <div id="dropdown--wrapper">
                 <p id="dropdown--text" aria-label="Trier par">Trier par</p>
                 <div class="dropdown" id="populaire">
-                    <a class="dropbtn filter" role="button" aria-haspopup="listbox" aria-expanded="undefined" data-filter="populaire">Popularité</a>
-                    <i class="fas fa-chevron-down arrow--down"></i>
-                    <i class="fas fa-chevron-up arrow--up"></i>
-                    <div id="dropdown-content">
-                        <a class="filter" role="listbox" aria-activedescendant="" aria-selected="undefined" aria-labelledby="Trier par" data-filter="date">Date</a>
-                        <a class="filter" role="listbox" aria-activedescendant="" aria-selected="undefined" aria-labelledby="Trier par" data-filter="titre">Titre</a>
+                    <button class="dropbtn filter" role="button" aria-haspopup="listbox" aria-expanded="false" data-filter="populaire">Popularité</button>
+                    <em class="fas fa-chevron-down arrow--down"></em>
+                    <em class="fas fa-chevron-up arrow--up"></em>
+                    <div class="dropdown-content">
+                        <button class="filter" role="listbox" aria-activedescendant="date" aria-selected="false" aria-labelledby="Trier par" data-filter="date">Date</button>
+                        <button class="filter" role="listbox" aria-activedescendant="titre" aria-selected="false" aria-labelledby="Trier par" data-filter="titre">Titre</button>
                     </div>
                 </div>
                 <div class="dropdown" id="date">
-                    <a class="dropbtn filter" role="button" aria-haspopup="listbox" aria-expanded="undefined" data-filter="date">Date</a>
-                    <i class="fas fa-chevron-down arrow--down"></i>
-                    <i class="fas fa-chevron-up arrow--up"></i>
-                    <div id="dropdown-content">
-                        <a class="filter" role="listbox" aria-activedescendant="" aria-selected="undefined" aria-labelledby="Trier par" data-filter="populaire">Popularité</a>
-                        <a class="filter" role="listbox" aria-activedescendant="" aria-selected="undefined" aria-labelledby="Trier par" data-filter="titre">Titre</a>
+                    <button class="dropbtn filter" role="button" aria-haspopup="listbox" aria-expanded="false" data-filter="date">Date</button>
+                    <em class="fas fa-chevron-down arrow--down"></em>
+                    <em class="fas fa-chevron-up arrow--up"></em>
+                    <div class="dropdown-content">
+                        <button class="filter" role="listbox" aria-activedescendant="populaire" aria-selected="false" aria-labelledby="Trier par" data-filter="populaire">Popularité</button>
+                        <button class="filter" role="listbox" aria-activedescendant="titre" aria-selected="false" aria-labelledby="Trier par" data-filter="titre">Titre</button>
                     </div>
                 </div>
                 <div class="dropdown" id="titre">
-                    <a class="dropbtn filter" role="button" aria-haspopup="listbox" aria-expanded="undefined" data-filter="titre">Titre</a>
-                    <i class="fas fa-chevron-down arrow--down"></i>
-                    <i class="fas fa-chevron-up arrow--up"></i>
-                    <div id="dropdown-content">
-                        <a class="filter" role="listbox" aria-activedescendant="" aria-selected="undefined" aria-labelledby="Trier par" data-filter="date">Date</a>
-                        <a class="filter" role="listbox" aria-activedescendant="" aria-selected="undefined" aria-labelledby="Trier par" data-filter="populaire">Popularité</a>
+                    <button class="dropbtn filter" role="button" aria-haspopup="listbox" aria-expanded="false" data-filter="titre">Titre</button>
+                    <em class="fas fa-chevron-down arrow--down"></em>
+                    <em class="fas fa-chevron-up arrow--up"></em>
+                    <div class="dropdown-content">
+                        <button class="filter" role="listbox" aria-activedescendant="date" aria-selected="false" aria-labelledby="Trier par" data-filter="date">Date</button>
+                        <button class="filter" role="listbox" aria-activedescendant="populaire" aria-selected="false" aria-labelledby="Trier par" data-filter="populaire">Popularité</button>
                     </div>
                 </div>
             </div>
@@ -50,7 +50,7 @@
             <div id="like--wrapper"></div>
             <div class="background" aria-hidden="true" aria-labelledby="Contactez-moi">
                 <div>
-                    <i id="fermer--form" class="fas fa-times fermer" aria-label="Fermer formulaire de contact"></i>
+                    <em id="fermer--form" class="fas fa-times fermer" aria-label="Fermer formulaire de contact" aria-hidden="true"></em>
                     <form 
                     class="contact--form"
                     name="form" 
@@ -100,9 +100,9 @@
             </div>
             <span id="blur"></span>
             <div id="lightbox--wrapper" aria-hidden="true">
-                <i class="fas fa-times" id="close" aria-label="Fermer dialog"></i>
-                <i class="fas fa-chevron-left" id="previous" aria-label="Image précedente"></i>
-                <i class="fas fa-chevron-right" id="next" aria-label="Prochaine image"></i>
+                <em class="fas fa-times" id="close" aria-label="Fermer dialog"></em>
+                <em class="fas fa-chevron-left" id="previous" aria-label="Image précedente"></em>
+                <em class="fas fa-chevron-right" id="next" aria-label="Prochaine image"></em>
                 <div id="lightbox--body"></div>
             </div>
         </main>

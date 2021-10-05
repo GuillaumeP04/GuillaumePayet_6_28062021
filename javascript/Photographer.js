@@ -14,7 +14,7 @@ class Photographer {
     render() { 
         let tags = " ";
         this.tags.forEach(tag => {
-            tags += `<span class="photographe--selection" id="${tag}" aria-label="${tag} Tag">#${tag}</span>`
+            tags += `<span class="photographe--selection" id="${tag}" aria-label="${tag} tag">#${tag}</span>`
         });
         
         return ` 
@@ -60,7 +60,7 @@ class Photographer {
     displayDailyPrice() {
         document.getElementById("like--wrapper").innerHTML = `
         <span id="total--like"></span>
-        <i class="fas fa-heart"></i>
+        <em class="fas fa-heart"></em>
         <span id="daily-price">${this.price}€/jour</span>`;
     }
 }
