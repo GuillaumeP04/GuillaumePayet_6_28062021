@@ -14,7 +14,7 @@ class Photographer {
     render() { 
         let tags = " ";
         this.tags.forEach(tag => {
-            tags += `<span class="photographe--selection" id="${tag}" aria-label="${tag} tag">#${tag}</span>`
+            tags += `<a class="photographe--selection" id="${tag}" aria-label="${tag} tag">#${tag}</a>`
         });
         
         return ` 

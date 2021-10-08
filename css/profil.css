@@ -209,7 +209,6 @@ header {
     transform: translate(-50%, 0);
     z-index: 3;
     display: none;
-    overflow-y: scroll;
 }
 
 .contact--form {
@@ -217,7 +216,6 @@ header {
     flex-direction: column;
     width: 600px;
     border-radius: 5px;
-    overflow-y: scroll;
 }
 
 .fermer {
@@ -477,6 +475,11 @@ header {
         position: relative;
         left: 50%;
         transform: translate(-50%, 0);
+        overflow-y: scroll;
+   }
+
+   .background {
+        overflow-y: scroll;
    }
 
    #fermer--form {

@@ -81,12 +81,22 @@ class Portfolio {
             let medias = factory.build(media);
             this.all.push(medias);
         })
-        this.listenForClose();
-        this.listenForNext();
-        this.listenForPrevious();
+        // this.lightboxNext();
+        // this.lightboxPrevious();
+        // this.closeLightbox();
     } 
 
     lightboxListener() {
+        this.listenForKey();
+        document.getElementById("close").addEventListener("click", () => {
+            this.closeLightbox();
+        });
+        document.getElementById("next").addEventListener("click", () => {
+            this.lightboxNext();
+        })
+        document.getElementById("previous").addEventListener("click", () => {
+            this.lightboxPrevious();
+        })
         document.querySelectorAll("#image--link").forEach(images => {
             images.addEventListener("click", (e) => {
                 let id = e.target.getAttribute("photoid");
@@ -96,12 +106,25 @@ class Portfolio {
         })
     }
 
-    listenForClose() {
-        document.getElementById("close").addEventListener("click", () => {
-            document.getElementById("lightbox--wrapper").style.display = "none";
-            document.getElementById("lightbox--wrapper").setAttribute('aria-hidden', 'true')
-            document.querySelector("body").setAttribute('aria-hidden', 'false')
-        });
+    listenForKey() {
+        document.addEventListener("keydown", (e) => {
+           let key = e.which;
+           if (key == "27") {
+               this.closeLightbox();
+           }
+           if (key == "39") {
+               this.lightboxNext();
+           }
+           if (key == "37") {
+               this.lightboxPrevious();
+           }
+       })
+    }
+
+    closeLightbox() {
+        document.getElementById("lightbox--wrapper").style.display = "none";
+        document.getElementById("lightbox--wrapper").setAttribute('aria-hidden', 'true')
+        document.querySelector("body").setAttribute('aria-hidden', 'false')
     }
 
     listenForFilter() {
@@ -136,27 +159,22 @@ class Portfolio {
         this.resetLikes()
     }
 
-    listenForNext() {
-        document.getElementById("next").addEventListener("click", () => {
-            this.currentSlideIndex++;
-            if (this.currentSlideIndex == this.all.length) {
-                this.currentSlideIndex = 0;
-            }
-            let id = this.all[this.currentSlideIndex].id;
-            this.showLightbox(id)
-
-        })
+    lightboxNext() {
+        this.currentSlideIndex++;
+        if (this.currentSlideIndex == this.all.length) {
+            this.currentSlideIndex = 0;
+        }
+        let id = this.all[this.currentSlideIndex].id;
+        this.showLightbox(id)
     }
 
-    listenForPrevious() {
-        document.getElementById("previous").addEventListener("click", () => {
-            this.currentSlideIndex--;
-            if (this.currentSlideIndex == -1) {
-                this.currentSlideIndex = this.all.length - 1;
-            }
-            let id = this.all[this.currentSlideIndex].id;
-            this.showLightbox(id)
-        })
+    lightboxPrevious() {
+        this.currentSlideIndex--;
+        if (this.currentSlideIndex == -1) {
+            this.currentSlideIndex = this.all.length - 1;
+        }
+        let id = this.all[this.currentSlideIndex].id;
+        this.showLightbox(id)
     }
 
     resetLikes() {

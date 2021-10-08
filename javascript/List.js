@@ -27,7 +27,7 @@ class List {
     displayTags() {
         let htmlNavBar = " ";
         this.tags.forEach(tags => {
-            htmlNavBar += `<span class="nav--bar" id="${tags}" aria-label="${tags} Tag">#${tags}</span>`
+            htmlNavBar += `<a class="nav--bar" id="${tags}" aria-label="${tags} Tag">#${tags}</a>`
         })
         document.getElementById("tags").innerHTML = htmlNavBar;
     }
