@@ -8,27 +8,16 @@ class Portfolio {
 
     build() {
         this.display();
-        this.lightboxListener();
         this.listenForFilter();
         this.listenForLike();
+        this.openLightbox();
     }
-
-    changeForDate() {
+    
+    changeDropdown(titre) {
         document.getElementById("populaire").style.display = "none";
         document.getElementById("titre").style.display = "none";
-        document.getElementById("date").style.display = "block";
-    }
-
-    changeForPopulaire() {
-        document.getElementById("populaire").style.display = "block";
-        document.getElementById("titre").style.display = "none";
         document.getElementById("date").style.display = "none";
-    }
-
-    changeForTitre() {
-        document.getElementById("populaire").style.display = "none";
-        document.getElementById("titre").style.display = "block";
-        document.getElementById("date").style.display = "none";
+        document.getElementById(titre).style.display = "block";
     }
 
     display() {
@@ -81,13 +70,9 @@ class Portfolio {
             let medias = factory.build(media);
             this.all.push(medias);
         })
-        // this.lightboxNext();
-        // this.lightboxPrevious();
-        // this.closeLightbox();
     } 
 
-    lightboxListener() {
-        this.listenForKey();
+    lightboxNavListener() {
         document.getElementById("close").addEventListener("click", () => {
             this.closeLightbox();
         });
@@ -97,28 +82,18 @@ class Portfolio {
         document.getElementById("previous").addEventListener("click", () => {
             this.lightboxPrevious();
         })
-        document.querySelectorAll("#image--link").forEach(images => {
-            images.addEventListener("click", (e) => {
-                let id = e.target.getAttribute("photoid");
-                this.currentSlideIndex = this.all.findIndex(media => media.id == id);
-                this.showLightbox();
-            });
-        })
-    }
-
-    listenForKey() {
         document.addEventListener("keydown", (e) => {
-           let key = e.which;
-           if (key == "27") {
-               this.closeLightbox();
-           }
-           if (key == "39") {
-               this.lightboxNext();
-           }
-           if (key == "37") {
-               this.lightboxPrevious();
-           }
-       })
+            let key = e.which;
+            if (key == "27") {
+                this.closeLightbox();
+            }
+            if (key == "39") {
+                this.lightboxNext();
+            }
+            if (key == "37") {
+                this.lightboxPrevious();
+            }
+        })
     }
 
     closeLightbox() {
@@ -133,13 +108,13 @@ class Portfolio {
                 let filtre = filter.getAttribute("data-filter");
                 if (filtre == "date") {
                     this.filterForDate();
-                    this.changeForDate();
+                    this.changeDropdown("date")
                 } else if (filtre == "titre") {
                     this.filterForTitre();
-                    this.changeForTitre();
+                    this.changeDropdown("titre")
                 } else if (filtre == "populaire") {
                     this.filterForPopularity();
-                    this.changeForPopulaire();
+                    this.changeDropdown("populaire")
                 }
                 this.build()
             })
@@ -148,15 +123,31 @@ class Portfolio {
 
     listenForLike() {
         document.querySelectorAll(".like").forEach(heart => {
-            heart.addEventListener("click", () => {
+            heart.addEventListener("click", (e) => {
+                e.preventDefault();
                 let id = heart.getAttribute("data-id");
                 let media = this.all.find(media => media.id == id);
                 media.toggle();
-
                 this.displayTotal();
             })
         })
         this.resetLikes()
+    }
+
+    openLightbox() {
+        document.querySelectorAll(".image--link").forEach(images => {
+            images.addEventListener("click", (e) => {
+                e.preventDefault();
+                let id = e.target.getAttribute("photoid");
+                this.currentSlideIndex = this.all.findIndex(media => media.id == id);
+                this.showLightbox();
+            });
+        })
+        document.querySelectorAll(".description").forEach(description => {
+            description.addEventListener("click", (e) => {
+                e.preventDefault();
+            });
+        })
     }
 
     lightboxNext() {
@@ -165,7 +156,7 @@ class Portfolio {
             this.currentSlideIndex = 0;
         }
         let id = this.all[this.currentSlideIndex].id;
-        this.showLightbox(id)
+        this.showLightbox(id);
     }
 
     lightboxPrevious() {
@@ -174,7 +165,7 @@ class Portfolio {
             this.currentSlideIndex = this.all.length - 1;
         }
         let id = this.all[this.currentSlideIndex].id;
-        this.showLightbox(id)
+        this.showLightbox(id);
     }
 
     resetLikes() {
@@ -187,8 +178,8 @@ class Portfolio {
 
     showLightbox() {
         document.getElementById("lightbox--wrapper").style.display = "block";
+        document.getElementById("lightbox--body").innerHTML = this.all[this.currentSlideIndex].renderLightbox();
         document.getElementById("lightbox--wrapper").setAttribute('aria-hidden', 'false');
         document.querySelector("body").setAttribute('aria-hidden', 'true')
-        document.getElementById("lightbox--body").innerHTML = this.all[this.currentSlideIndex].renderLightbox();
     }
 }

@@ -61,7 +61,7 @@ a {
     margin-bottom: 5px;
 }
 
-.nav--bar:focus, .nav--bar:hover {
+.nav--bar:hover {
     background-color: #901C1C;
     color: white;
 }
@@ -145,7 +145,7 @@ a {
     cursor: pointer;
 }
 
-.photographe--selection:hover, .photographe--selection:focus {
+.photographe--selection:hover {
     background-color: #901C1C;
     color: white;
 }

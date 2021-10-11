@@ -7,8 +7,8 @@ class Image extends Media {
 
     render() {
         return `
-        <div class="image--wrapper" date="${this.date}" price="${this.price}" title="${this.title}">
-            <img id="image--link" class="photos" src="../images/${this.photographerId}/${this.image}" alt="${this.title}" photoId="${this.id}" aria-label="${this.title} vue rapprochée">
+        <a href="#" class="image--wrapper" date="${this.date}" price="${this.price}" title="${this.title}" photoid="${this.id}" aria-label="${this.title} vue rapprochée">
+            <img class="photos image--link " src="../images/${this.photographerId}/${this.image}" alt="${this.title}" photoid="${this.id}">
             <div class="description--wrapper">
                 <p class="description" title ="${this.title}">${this.title}</p>
                 <span aria-label="Likes">
@@ -16,13 +16,13 @@ class Image extends Media {
                     <em class="fas fa-heart like" data-id="${this.id}"></em>
                 </span>
             </div>
-        </div>`
+        </a>`
     }
 
     renderLightbox() {
         return `
         <div id="lightbox">
-            <img id="lightbox--image" class="photos" src="../images/${this.photographerId}/${this.image}" alt="${this.title}" photoId="${this.id}" aria-label="${this.title}"">
+            <img id="lightbox--image" class="photos" src="../images/${this.photographerId}/${this.image}" alt="${this.title}" photoId="${this.id}" aria-label="${this.title}">
             <p id="lightbox--description">${this.title}</p>
         </div>
         `

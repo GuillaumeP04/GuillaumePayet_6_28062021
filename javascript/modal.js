@@ -10,6 +10,7 @@ let form = document.querySelector('form.contact--form');
 let blur = document.querySelector("#blur");
 let body = document.querySelector("body");
 
+key();
 ouvrirForm();
 fermerForm();
 // Listener 
@@ -41,4 +42,13 @@ function submitForm(e) {
     console.log("Email: ", x['email'].value);
     console.log("Message: ", x['message'].value);
     fermerForm();
+}
+
+function key() {
+    document.addEventListener("keydown", (e) => {
+        let key = e.which;
+        if (key == "27") {
+            fermerForm();
+        }
+    })
 }

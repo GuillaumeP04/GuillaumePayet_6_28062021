@@ -27,7 +27,7 @@ class List {
     displayTags() {
         let htmlNavBar = " ";
         this.tags.forEach(tags => {
-            htmlNavBar += `<a class="nav--bar" id="${tags}" aria-label="${tags} Tag">#${tags}</a>`
+            htmlNavBar += `<a href="#" class="nav--bar" id="${tags}" aria-label="${tags} Tag">#${tags}</a>`
         })
         document.getElementById("tags").innerHTML = htmlNavBar;
     }
@@ -35,7 +35,7 @@ class List {
     filter() {
         let list = this.all;
         if (this.tagSelected.size == 0) {
-            this.displayPhotographers(list)
+            this.displayPhotographers(list);
             return true;
         }
         list = this.all.filter(photographe => {
@@ -49,7 +49,7 @@ class List {
             })
             return keep;
         })
-        this.displayPhotographers(list)
+        this.displayPhotographers(list);
         this.build();
     }
 
@@ -76,6 +76,7 @@ class List {
                     this.addFilter(buttonNav);
                 }
                 this.filter();
+                this.build();
             })
         })
     }
@@ -85,7 +86,7 @@ class List {
             let photographer = new Photographer(item)
             this.all.push(photographer)
             item.tags.forEach(tag => {
-                this.tags.add(tag)
+                this.tags.add(tag);
             })
         });
     }
@@ -103,7 +104,8 @@ class List {
 
     listenForFiltering() {
         document.querySelectorAll(".nav--bar").forEach(button => {
-            button.addEventListener("click", () => {
+            button.addEventListener("click", (e) => {
+                e.preventDefault();
                 let tag = button.getAttribute("id");
                 if (this.tagSelected.has(tag)) {
                     this.removeFilter(button);
@@ -117,7 +119,7 @@ class List {
 
     removeFilter(button) {
         let tag = button.getAttribute("id");
-        button.classList.toggle("nav--bar__active")
-        this.tagSelected.delete(tag)
+        button.classList.toggle("nav--bar__active");
+        this.tagSelected.delete(tag);
     }
 }

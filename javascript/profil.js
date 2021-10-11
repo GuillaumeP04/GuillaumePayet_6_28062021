@@ -12,6 +12,7 @@ fetch('../data.json')
   let medias = data.medias.filter(media => media.photographerId == getId());
   portfolio.hydrate(medias);
   portfolio.build();
+  portfolio.lightboxNavListener();
 })
 
 function getId() {
