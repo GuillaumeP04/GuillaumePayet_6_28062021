@@ -8,7 +8,8 @@ class Photographer {
         this.tags = data.tags;
         this.tagline = data.tagline;
         this.price = data.price;
-        this.portrait = data.portrait
+        this.portrait = data.portrait;
+        this.alt = data.alt;
     }
 
     render() { 
@@ -19,8 +20,8 @@ class Photographer {
         
         return ` 
         <div class="photographe--wrapper" id="${this.id}">
-            <a class="wrapper--link" href="./html/profil.html?id=${this.id}" aria-label="${this.name}"">
-            <img class="photographe--profil" src="./images/photoID/${this.portrait}" alt="">
+            <a class="wrapper--link" href="./html/profil.html?id=${this.id}" aria-label="${this.name}">
+            <img class="photographe--profil" src="./images/photoID/${this.portrait}" alt="${this.alt}">
             </a>
             <h2 class="photographe--nom">${this.name}</h2>
             <p class="photographe--ville">${this.city}, ${this.country}</p>
@@ -47,7 +48,7 @@ class Photographer {
             <button id="ouvir--form" class="contact--form__lien" onclick="ouvrirForm()" aria-label="Contactez-moi">Contactez-moi</button>
           </div>
           <div>
-            <img class="profil--picture" src="../images/photoID/${this.portrait}" alt="" aria-label="${this.name}"">
+            <img class="profil--picture" src="../images/photoID/${this.portrait}" alt="" aria-label="${this.name}" alt="${this.alt}">
           </div> `;
     }
 

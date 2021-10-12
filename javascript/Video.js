@@ -7,15 +7,17 @@ class Video extends Media {
 
     render() {
         return `
-        <div class="image--wrapper image--link" date="${this.date}" price="${this.price}" photoId="${this.id}" title="${this.title}">
-            <video width="350" height="250" controls class="video">
-                <source src="../images/${this.photographerId}/${this.video}" type="video/mp4">
-            </video>
+        <div class="image--wrapper">
+            <a class="image--link" href="#" date="${this.date}" price="${this.price}" photoid="${this.id}" title="${this.title}">
+                <video width="350" height="250" poster class="image--link videos" alt="${this.alt}" photoid="${this.id}">
+                    <source src="../images/${this.photographerId}/${this.video}" type="video/mp4">
+                </video>
+            </a>
             <div class="description--wrapper">
                 <p class="description">${this.title}</p>
                 <span aria-label="Likes">
                     <span class="photographer--like" data-id="${this.id}">${this.likes}</span>
-                    <em class="fas fa-heart like" data-id="${this.id}"></em>
+                    <a href="#" class="fas fa-heart like" data-id="${this.id}"></a>
                 </span>
             </div>
         </div>`
@@ -24,7 +26,7 @@ class Video extends Media {
     renderLightbox() {
         return `
         <div id="lightbox">
-            <video width="80%" height="85%" controls id="lightbox--video">
+            <video width="80%" height="85%" controls id="lightbox--video" alt="${this.alt}">
                 <source src="../images/${this.photographerId}/${this.video}" type="video/mp4">
             </video>
             <p id="lightbox--description">${this.title}</p>

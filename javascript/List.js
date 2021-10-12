@@ -76,7 +76,6 @@ class List {
                     this.addFilter(buttonNav);
                 }
                 this.filter();
-                this.build();
             })
         })
     }

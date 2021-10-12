@@ -167,9 +167,9 @@ header {
     border-radius: 0px 0px 5px 5px;
 }
 
-.dropdown-content a.background:hover {filter: brightness(50%);}
+.dropdown-content button.background:hover {filter: brightness(50%);}
 
-.dropdown:hover .dropdown-content {
+.dropdown:hover .dropdown-content{
     display: block;
 }
 
@@ -198,7 +198,7 @@ header {
 }
 
 .background {
-    height: 675px;
+    height: 600px;
     background-color: #DB8876;
     padding: 25px;
     width: 600px;
@@ -282,6 +282,7 @@ header {
     width: 350px;
     height: 300px;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 .description--wrapper {
