@@ -91,6 +91,7 @@ header {
     color: white;
     right: 15px;
     bottom: 35px;
+    z-index: 1;
 }
 
 .arrow--down {
@@ -98,6 +99,7 @@ header {
     color: white;
     right: 15px;
     bottom: 35px;
+    z-index: 1;
 }
 
 #dropdown--wrapper button {

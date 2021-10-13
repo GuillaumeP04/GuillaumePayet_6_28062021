@@ -15,7 +15,7 @@ class Photographer {
     render() { 
         let tags = " ";
         this.tags.forEach(tag => {
-            tags += `<a class="photographe--selection" id="${tag}" aria-label="${tag} tag">#${tag}</a>`
+            tags += `<a class="photographe--selection" id="${tag}" aria-label="${tag} tag">#${tag}</a>`;
         });
         
         return ` 
@@ -34,7 +34,7 @@ class Photographer {
     displayProfil() {
         let tags = " ";
         this.tags.forEach(tag => {
-            tags += `<a href="/index.html?tag=${tag}" class="profil--selection" id="${tag}" aria-label="${tag} Tag">#${tag}</a>`
+            tags += `<a href="/index.html?tag=${tag}" class="profil--selection" id="${tag}" aria-label="${tag} Tag">#${tag}</a>`;
         });
 
         document.getElementById("contact--wrapper").innerHTML = `
@@ -65,3 +65,4 @@ class Photographer {
         <span id="daily-price">${this.price}€/jour</span>`;
     }
 }
+export default Photographer;

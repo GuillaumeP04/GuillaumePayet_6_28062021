@@ -1,5 +1,6 @@
+import List from "./List.js";
 
-fetch('./data.json')
+fetch("./data.json")
 .then(response => response.json())
 .then(data => {
   let list = new List();
@@ -10,5 +11,5 @@ fetch('./data.json')
   list.build();
   list.listenForFiltering();
   list.filterProfilTags();
-})
+});
 

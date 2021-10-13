@@ -1,3 +1,5 @@
+import Media from "./Media.js";
+
 class Video extends Media {
 
     constructor(data) {
@@ -20,7 +22,7 @@ class Video extends Media {
                     <a href="#" class="fas fa-heart like" data-id="${this.id}"></a>
                 </span>
             </div>
-        </div>`
+        </div>`;
     }
 
     renderLightbox() {
@@ -31,8 +33,7 @@ class Video extends Media {
             </video>
             <p id="lightbox--description">${this.title}</p>
         </div>
-        `
+        `;
     }
-
-
 }
+export default Video;

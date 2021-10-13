@@ -26,4 +26,4 @@ class Media {
         count.innerHTML = this.likes;
     }
 }
-
+export default Media;

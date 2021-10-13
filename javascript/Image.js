@@ -1,3 +1,5 @@
+import Media from "./Media.js";
+
 class Image extends Media {
 
     constructor(data) {
@@ -18,7 +20,7 @@ class Image extends Media {
                     <a href="#" class="fas fa-heart like" data-id="${this.id}"></a>
                 </span>
             </div>
-        </div>`
+        </div>`;
     }
 
     renderLightbox() {
@@ -27,6 +29,7 @@ class Image extends Media {
             <img id="lightbox--image" class="photos" src="../images/${this.photographerId}/${this.image}" alt="${this.alt}" photoid="${this.id}" aria-label="${this.title}">
             <p id="lightbox--description">${this.title}</p>
         </div>
-        `
+        `;
     }
 }
+export default Image;

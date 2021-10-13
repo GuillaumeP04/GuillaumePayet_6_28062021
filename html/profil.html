@@ -20,37 +20,36 @@
                 <p id="dropdown--text" aria-label="Trier par">Trier par</p>
                 <div class="dropdown" id="populaire">
                     <button class="dropbtn filter" role="button" aria-haspopup="listbox" aria-expanded="false" data-filter="populaire">Popularité</button>
-                    <em class="fas fa-chevron-down arrow--down"></em>
-                    <em class="fas fa-chevron-up arrow--up"></em>
+                    <a href="#" class="fas fa-chevron-down arrow--down"></a>
                     <div class="dropdown-content">
                         <button class="filter" role="listbox" aria-activedescendant="date" aria-selected="false" aria-labelledby="Trier par" data-filter="date">Date</button>
                         <button class="filter" role="listbox" aria-activedescendant="titre" aria-selected="false" aria-labelledby="Trier par" data-filter="titre">Titre</button>
                     </div>
+                    <a href="#" class="fas fa-chevron-up arrow--up"></a>
                 </div>
                 <div class="dropdown" id="date">
                     <button class="dropbtn filter" role="button" aria-haspopup="listbox" aria-expanded="false" data-filter="date">Date</button>
-                    <em class="fas fa-chevron-down arrow--down"></em>
-                    <em class="fas fa-chevron-up arrow--up"></em>
+                    <a href="#" class="fas fa-chevron-down arrow--down"></a>
                     <div class="dropdown-content">
                         <button class="filter" role="listbox" aria-activedescendant="populaire" aria-selected="false" aria-labelledby="Trier par" data-filter="populaire">Popularité</button>
                         <button class="filter" role="listbox" aria-activedescendant="titre" aria-selected="false" aria-labelledby="Trier par" data-filter="titre">Titre</button>
                     </div>
+                    <a href="#" class="fas fa-chevron-up arrow--up"></a>
                 </div>
                 <div class="dropdown" id="titre">
                     <button class="dropbtn filter" role="button" aria-haspopup="listbox" aria-expanded="false" data-filter="titre">Titre</button>
-                    <em class="fas fa-chevron-down arrow--down"></em>
-                    <em class="fas fa-chevron-up arrow--up"></em>
+                    <a href="#" class="fas fa-chevron-down arrow--down"></a>
                     <div class="dropdown-content">
                         <button class="filter" role="listbox" aria-activedescendant="date" aria-selected="false" aria-labelledby="Trier par" data-filter="date">Date</button>
                         <button class="filter" role="listbox" aria-activedescendant="populaire" aria-selected="false" aria-labelledby="Trier par" data-filter="populaire">Popularité</button>
                     </div>
+                    <a href="#" class="fas fa-chevron-up arrow--up"></a>
                 </div>
             </div>
             <div id="div--wrapper"></div>
             <div id="like--wrapper"></div>
-            <div class="background" aria-hidden="true" aria-labelledby="Contactez-moi">
+            <div class="background" aria-hidden="true" aria-labelledby="Contactez-moi" aria-modal="true">
                 <div>
-                    <em id="fermer--form" class="fas fa-times fermer" aria-label="Fermer formulaire de contact" aria-hidden="true"></em>
                     <form 
                     class="contact--form"
                     name="form" 
@@ -89,6 +88,7 @@
                         aria-label="Envoyer"
                         >
                     </form>
+                    <a id="fermer--form" href="#" class="fas fa-times fermer" aria-label="Fermer formulaire de contact" aria-hidden="true"></a>
                 </div>
             </div>
             <span id="blur"></span>
@@ -99,13 +99,7 @@
                 <div id="lightbox--body"></div>
             </div>
         </main>
-        <script src="../javascript/Photographer.js"></script>
-        <script src="../javascript/Portfolio.js"></script>
-        <script src="../javascript/MediaFactory.js"></script>
-        <script src="../javascript/Media.js"></script>
-        <script src="../javascript/Video.js"></script>
-        <script src="../javascript/Image.js"></script>
         <script src="../javascript/modal.js"></script>
-        <script src="../javascript/profil.js"></script>
+        <script src="../javascript/profil.js" type="module"></script>
     </body>
 </html>

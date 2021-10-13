@@ -1,3 +1,6 @@
+import Image from "./Image.js";
+import Video from "./Video.js";
+
 class MediaFactory {
     
     build(media) {
@@ -7,5 +10,6 @@ class MediaFactory {
             media = new Video(media);
         }
         return media;
-    };
+    }
 }
+export default MediaFactory;

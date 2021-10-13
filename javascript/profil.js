@@ -1,5 +1,7 @@
+import Photographer from "./Photographer.js";
+import Portfolio from "./Portfolio.js";
 
-fetch('../data.json')
+fetch("../data.json")
 .then(response => response.json())
 .then(data => {
   let photographerRaw = data.photographers.find(photographe => photographe.id == getId());
@@ -13,9 +15,9 @@ fetch('../data.json')
   portfolio.hydrate(medias);
   portfolio.build();
   portfolio.lightboxNavListener();
-})
+});
 
 function getId() {
   const urlParams = new URLSearchParams(window.location.search);
-  return urlParams.get('id');
+  return urlParams.get("id");
 }

@@ -1,3 +1,5 @@
+import Photographer from "./Photographer.js";
+
 class List {
     constructor () {
         this.all = [];
@@ -20,15 +22,16 @@ class List {
         let html = " ";
         list.forEach(photographer => {
             html += photographer.render();
-        })
+        });
         document.getElementById("main--wrapper").innerHTML = html;
+        this.build();
     }
 
     displayTags() {
         let htmlNavBar = " ";
         this.tags.forEach(tags => {
-            htmlNavBar += `<a href="#" class="nav--bar" id="${tags}" aria-label="${tags} Tag">#${tags}</a>`
-        })
+            htmlNavBar += `<a href="#" class="nav--bar" id="${tags}" aria-label="${tags} Tag">#${tags}</a>`;
+        });
         document.getElementById("tags").innerHTML = htmlNavBar;
     }
 
@@ -46,17 +49,17 @@ class List {
                 } else {
                     keep = false;
                 }
-            })
+            });
             return keep;
-        })
+        });
         this.displayPhotographers(list);
-        this.build();
+        // this.build();
     }
 
     filterProfilTags() {
         const urlParams = new URLSearchParams(window.location.search);
-        let tag = urlParams.get('tag');
-        let buttonNav = document.querySelector(`.nav--bar[id="${tag}"]`)
+        let tag = urlParams.get("tag");
+        let buttonNav = document.querySelector(`.nav--bar[id="${tag}"]`);
         if (tag) {
             this.addFilter(buttonNav);
         }
@@ -67,26 +70,25 @@ class List {
     filterTags() {
         document.querySelectorAll(".photographe--selection").forEach(button => {
             button.addEventListener("click", () => {
-                console.log(123)
                 let tag = button.getAttribute("id");
-                let buttonNav = document.querySelector(`.nav--bar[id="${tag}"]`)
+                let buttonNav = document.querySelector(`.nav--bar[id="${tag}"]`);
                 if (this.tagSelected.has(tag)) {
                     this.removeFilter(buttonNav);
                 } else { 
                     this.addFilter(buttonNav);
                 }
                 this.filter();
-            })
-        })
+            });
+        });
     }
 
     hydrate(photographers) {
         photographers.forEach(item => {
-            let photographer = new Photographer(item)
-            this.all.push(photographer)
+            let photographer = new Photographer(item);
+            this.all.push(photographer);
             item.tags.forEach(tag => {
                 this.tags.add(tag);
-            })
+            });
         });
     }
 
@@ -98,7 +100,7 @@ class List {
             } else if (document.body.scrollTop < 100 || document.documentElement.scrollTop < 100) {
                 document.getElementById("nav--content").style.display = "none";
             }
-        }
+        };
     }
 
     listenForFiltering() {
@@ -122,3 +124,4 @@ class List {
         this.tagSelected.delete(tag);
     }
 }
+export default List;

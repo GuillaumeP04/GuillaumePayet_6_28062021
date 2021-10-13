@@ -1,3 +1,5 @@
+import MediaFactory from "./MediaFactory.js";
+
 class Portfolio {
 
     constructor() {
@@ -11,6 +13,7 @@ class Portfolio {
         this.listenForFilter();
         this.listenForLike();
         this.openLightbox();
+        this.listenForTrie();
     }
     
     changeDropdown(titre) {
@@ -40,15 +43,15 @@ class Portfolio {
                  return -1;
             } 
             if (dateA > dateB) {
-                return 1
+                return 1;
             }
-        })
+        });
     }
 
     filterForPopularity() {
         this.all = this.all.sort((a, b) => {
             return b.likes - a.likes;
-        })
+        });
     }
 
     filterForTitre() {
@@ -59,9 +62,9 @@ class Portfolio {
                  return -1;
             } 
             if (titleA > titleB) {
-                return 1
+                return 1;
             }
-        })
+        });
     }
     
     hydrate(medias) {
@@ -69,7 +72,7 @@ class Portfolio {
             let factory = new MediaFactory(media);
             let medias = factory.build(media);
             this.all.push(medias);
-        })
+        });
     } 
 
     lightboxNavListener() {
@@ -78,10 +81,10 @@ class Portfolio {
         });
         document.getElementById("next").addEventListener("click", () => {
             this.lightboxNext();
-        })
+        });
         document.getElementById("previous").addEventListener("click", () => {
             this.lightboxPrevious();
-        })
+        });
         document.addEventListener("keydown", (e) => {
             let key = e.which;
             if (key == "27") {
@@ -93,13 +96,13 @@ class Portfolio {
             if (key == "37") {
                 this.lightboxPrevious();
             }
-        })
+        });
     }
 
     closeLightbox() {
         document.getElementById("lightbox--wrapper").style.display = "none";
-        document.getElementById("lightbox--wrapper").setAttribute('aria-hidden', 'true')
-        document.querySelector("body").setAttribute('aria-hidden', 'false')
+        document.getElementById("lightbox--wrapper").setAttribute("aria-hidden", "true");
+        document.querySelector("body").setAttribute("aria-hidden", "false");
     }
 
     listenForFilter() {
@@ -108,15 +111,51 @@ class Portfolio {
                 let filtre = filter.getAttribute("data-filter");
                 if (filtre == "date") {
                     this.filterForDate();
-                    this.changeDropdown("date")
+                    this.changeDropdown("date");
                 } else if (filtre == "titre") {
                     this.filterForTitre();
-                    this.changeDropdown("titre")
+                    this.changeDropdown("titre");
                 } else if (filtre == "populaire") {
                     this.filterForPopularity();
-                    this.changeDropdown("populaire")
+                    this.changeDropdown("populaire");
                 }
-                this.build()
+                this.build();
+            });
+        });
+    }
+
+    listenForTrie() {
+        this.openTrie();
+        this.closeTrie();
+    }
+
+    openTrie() {
+        document.querySelectorAll(".arrow--down").forEach(buttonDown => {
+            buttonDown.addEventListener("click", () => {
+                document.querySelectorAll(".dropdown-content").forEach(menu => {
+                    menu.style.display = "block";
+                    buttonDown.style.display = "none";
+                    document.querySelectorAll(".dropbtn").forEach(button => {
+                        button.focus();
+                    })
+                 })
+                 document.querySelectorAll(".arrow--up").forEach(buttonUp => {
+                    buttonUp.style.display = "block";
+                 })
+            });
+        });
+    }
+
+    closeTrie() {
+        document.querySelectorAll(".arrow--up").forEach(buttonUp => {
+            buttonUp.addEventListener("click", () => {
+                document.querySelectorAll(".dropdown-content").forEach(menu => {
+                    menu.style.display = "none";
+                    buttonUp.style.display = "none";
+                })
+                document.querySelectorAll(".arrow--down").forEach(buttonDown => {
+                    buttonDown.style.display = "block";
+                });
             })
         })
     }
@@ -129,9 +168,9 @@ class Portfolio {
                 let media = this.all.find(media => media.id == id);
                 media.toggle();
                 this.displayTotal();
-            })
-        })
-        this.resetLikes()
+            });
+        });
+        this.resetLikes();
     }
 
     openLightbox() {
@@ -142,12 +181,12 @@ class Portfolio {
                 this.currentSlideIndex = this.all.findIndex(media => media.id == id);
                 this.showLightbox();
             });
-        })
+        });
         document.querySelectorAll(".description").forEach(description => {
             description.addEventListener("click", (e) => {
                 e.preventDefault();
             });
-        })
+        });
     }
 
     lightboxNext() {
@@ -172,14 +211,15 @@ class Portfolio {
         let total = 0;
         this.all.forEach(media => {
             total += media.likes;
-        })
+        });
         document.getElementById("total--like").innerHTML = total;
     }
 
     showLightbox() {
         document.getElementById("lightbox--wrapper").style.display = "block";
         document.getElementById("lightbox--body").innerHTML = this.all[this.currentSlideIndex].renderLightbox();
-        document.getElementById("lightbox--wrapper").setAttribute('aria-hidden', 'false');
-        document.querySelector("body").setAttribute('aria-hidden', 'true')
+        document.getElementById("lightbox--wrapper").setAttribute("aria-hidden", "false");
+        document.querySelector("body").setAttribute("aria-hidden", "true");
     }
 }
+export default Portfolio;
