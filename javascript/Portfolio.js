@@ -137,11 +137,11 @@ class Portfolio {
                     buttonDown.style.display = "none";
                     document.querySelectorAll(".dropbtn").forEach(button => {
                         button.focus();
-                    })
-                 })
+                    });
+                 });
                  document.querySelectorAll(".arrow--up").forEach(buttonUp => {
                     buttonUp.style.display = "block";
-                 })
+                 });
             });
         });
     }
@@ -152,12 +152,12 @@ class Portfolio {
                 document.querySelectorAll(".dropdown-content").forEach(menu => {
                     menu.style.display = "none";
                     buttonUp.style.display = "none";
-                })
+                });
                 document.querySelectorAll(".arrow--down").forEach(buttonDown => {
                     buttonDown.style.display = "block";
                 });
-            })
-        })
+            });
+        });
     }
 
     listenForLike() {
