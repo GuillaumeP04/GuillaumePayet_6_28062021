@@ -1,6 +1,7 @@
 body {
     padding-bottom: 55px;
     overflow-y: auto;
+    max-width: 1400px;
 }
 
 main {

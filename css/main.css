@@ -3,6 +3,7 @@ body {
     padding: 25px;
     margin: 0px;
     position: relative;
+    max-width: 1400px;
 }
 
 header {
